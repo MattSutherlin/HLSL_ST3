@@ -33,7 +33,7 @@ contexts:
 
 
   main:
-    - match: (\bstruct\b)(?:[ \\t]+)({{valid_variable}})
+    - match: (\bstruct\b)(?:\s+)({{valid_variable}})
       captures:
         1: storage.type.struct.hlsl
         2: entity.name.type.struct.hlsl
@@ -86,7 +86,7 @@ contexts:
       scope: keyword.control.hlsl
       set: [typedef_after_typename, typename]
 
-    - match: (\b{{valid_variable}})(?:[ \\t]*)(?:\()
+    - match: (\b{{valid_variable}})(?:\s*)(?:\()
       captures:
         1: entity.name.function-call.hlsl
 
@@ -154,7 +154,7 @@ contexts:
 
 
   functions:
-    - match: (?:(?:({{scalar_types}})|({{vector_types}})|({{matrix_types}})|({{texture_types}})|(\b{{valid_variable}})|(#define))\b)(?:[ \\t]+)(\b{{valid_variable}})(?:[ \\t]*)(?:\()
+    - match: (?:(?:({{scalar_types}})|({{vector_types}})|({{matrix_types}})|({{texture_types}})|(\b{{valid_variable}})|(#define))\b)(?:\s+)(\b{{valid_variable}})(?:\s*)(?:\()
       captures:
         1: storage.type.scalar.hlsl
         2: storage.type.vector.hlsl
