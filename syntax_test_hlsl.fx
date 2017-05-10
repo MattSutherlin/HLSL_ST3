@@ -147,7 +147,7 @@ float2x2 FunctionName(float param1, int2 param2, structName param3)
     return result;
 }
 
-varname FunctionName(float param1, int2 param2, structName param3)
+varname FunctionName(float param1, int2 param2, inout structName param3, uniform bool IsTrue = false)
 // <- storage.type.hlsl
 //      ^ entity.name.function.hlsl
 {
@@ -175,6 +175,18 @@ namespace TestSpace
 //                  ^ constant.other.hlsl
             int4 varname2;
         #endif
+        varname FunctionName(float param1, int2 param2, inout structName param3, uniform bool IsTrue = false)
+//      ^ storage.type.hlsl
+//              ^ entity.name.function.hlsl
+//                           ^ storage.type.scalar.hlsl
+//                                         ^ storage.type.vector.hlsl
+//                                                      ^ variable.other.copy-modifier.hlsl
+//                                                                               ^ storage.modifier.hlsl
+//                                                                                       ^ storage.type.scalar.hlsl
+//                                                                                                     ^ constant.language.hlsl
+        {
+            return result;
+        }
     };
 
     typedef struct
@@ -191,6 +203,19 @@ namespace TestSpace
 //                  ^ constant.other.hlsl
             int4 varname2;
         #endif
+
+        varname FunctionName(float param1, int2 param2, inout structName param3, uniform bool IsTrue = false)
+//      ^ storage.type.hlsl
+//              ^ entity.name.function.hlsl
+//                           ^ storage.type.scalar.hlsl
+//                                         ^ storage.type.vector.hlsl
+//                                                      ^ variable.other.copy-modifier.hlsl
+//                                                                               ^ storage.modifier.hlsl
+//                                                                                       ^ storage.type.scalar.hlsl
+//                                                                                                     ^ constant.language.hlsl
+        {
+            return result;
+        }
     } s_struct_name;
 //    ^ entity.name.type.struct.hlsl
 

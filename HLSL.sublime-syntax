@@ -22,6 +22,7 @@ contexts:
   prototype:
     - include: string
     - include: comments
+    - include: modifiers
     - include: register
     - include: buffers
     - include: preprocessor_tokens
@@ -30,6 +31,7 @@ contexts:
     - include: functions
     - include: preprocessor_keywords
     - include: basic_built_in_types
+    - include: misc
 
 
   main:
@@ -43,57 +45,14 @@ contexts:
             - match: \}
               pop: true
 
-    - match: \b((0(x|X)[0-9a-fA-F]*)|(([0-9]+\.?[0-9]*)|(\.[0-9]+))((e|E)(\+|-)?[0-9]+)?)(d|f|u)?\b
-      scope: constant.numeric.hlsl
-
-    - match: \b(false|FALSE|NULL|true|TRUE)\b
-      scope: constant.language.hlsl
-
-    - match: \.[xyzwrgba]+\b
-      scope: variable.other.dot-access.hlsl
-
-    - match: \b(in|out|inout)\b
-      scope: variable.other.copy-modifier.hlsl
-
-    - match: (\+|\-|\*|\/|=)
-      scope: keyword.operator.hlsl
-
-    - match: \b(centroid|column_major|const|extern|groupshared|inline|nointerpolation|noperspective|packoffset|precise|row_major|shared|static|uniform|volatile)\b
-      scope: storage.modifier.hlsl
-
-    - match: \b(snorm|unorm)\b
-      scope: storage.type.float.modifier.hlsl
-
-    - match: \b(sampler|sampler1D|sampler2D|sampler3D|SamplerComparisonState|samplerCUBE|sampler_state|SamplerState)\b
-      scope: storage.type.sampler.hlsl
-
-    - match: \b(Texture)\b
-      comment: Direct3D 9 Texture keyword
-      scope: keyword.sampler.texture.hlsl
-
-    - match: \b(AddressU|AddressV|AddressW|BorderColor|Filter|MaxAnisotropy|MaxLOD|MinLOD|MipLODBias)\b
-      scope: variable.other.sampler.state.hlsl
-
-    - match: \b(ComparisonFunc|ComparisonFilter)\b
-      scope: variable.other.sampler-comparison.state.hlsl
-
     - match: (\bnamespace)(?:\s+)({{valid_variable}})
       captures:
         1: keyword.control.namespace.hlsl
         2: storage.type.namespace.hlsl
 
-    - match: ({{valid_variable}})(\:\:)
-      captures:
-        1: entity.name.scope.hlsl
-        2: keyword.operator.scope.hlsl
-
     - match: \btypedef\b
       scope: keyword.control.hlsl
       set: [typedef_after_typename, typename]
-
-    - match: (\b{{valid_variable}})(?:\s*)(?:\()
-      captures:
-        1: entity.name.function-call.hlsl
 
 
   string:
@@ -118,6 +77,53 @@ contexts:
         - meta_scope: comment.line.double-slash.hlsl
         - match: $
           pop: true
+
+
+  modifiers:
+    - match: \.[xyzwrgba]+\b
+      scope: variable.other.dot-access.hlsl
+
+    - match: \b(in|out|inout)\b
+      scope: variable.other.copy-modifier.hlsl
+
+    - match: \b(centroid|column_major|const|extern|groupshared|inline|nointerpolation|noperspective|packoffset|precise|row_major|shared|static|uniform|volatile)\b
+      scope: storage.modifier.hlsl
+
+    - match: \b(snorm|unorm)\b
+      scope: storage.type.float.modifier.hlsl
+
+
+  misc:
+    - match: \b((0(x|X)[0-9a-fA-F]*)|(([0-9]+\.?[0-9]*)|(\.[0-9]+))((e|E)(\+|-)?[0-9]+)?)(d|f|u)?\b
+      scope: constant.numeric.hlsl
+
+    - match: \b(false|FALSE|NULL|true|TRUE)\b
+      scope: constant.language.hlsl
+
+    - match: (\+|\-|\*|\/|=)
+      scope: keyword.operator.hlsl
+
+    - match: \b(sampler|sampler1D|sampler2D|sampler3D|SamplerComparisonState|samplerCUBE|sampler_state|SamplerState)\b
+      scope: storage.type.sampler.hlsl
+
+    - match: \b(Texture)\b
+      comment: Direct3D 9 Texture keyword
+      scope: keyword.sampler.texture.hlsl
+
+    - match: \b(AddressU|AddressV|AddressW|BorderColor|Filter|MaxAnisotropy|MaxLOD|MinLOD|MipLODBias)\b
+      scope: variable.other.sampler.state.hlsl
+
+    - match: \b(ComparisonFunc|ComparisonFilter)\b
+      scope: variable.other.sampler-comparison.state.hlsl
+
+    - match: ({{valid_variable}})(\:\:)
+      captures:
+        1: entity.name.scope.hlsl
+        2: keyword.operator.scope.hlsl
+
+    - match: (\b{{valid_variable}})(?:\s*)(?:\()
+      captures:
+        1: entity.name.function-call.hlsl
 
 
   register:
