@@ -48,6 +48,8 @@ struct PS_INPUT
 //      ^ constant.other.hlsl
 
 #if defined(TOKEN)
+// <- keyword.control.preprocessor.hlsl
+//  ^ keyword.control.preprocessor.hlsl
 //          ^ constant.other.hlsl
     float3 varname3 : POSITION0;
 #endif
@@ -156,3 +158,48 @@ float result = FunctionName(param1, param2, param3);
 // <- storage.type.scalar.hlsl
 //           ^ keyword.operator.hlsl
 //             ^ entity.name.function-call.hlsl
+
+namespace TestSpace
+// <- keyword.control.namespace.hlsl
+//        ^ storage.type.namespace.hlsl
+{
+    struct TestStruct
+//  ^ storage.type.struct.hlsl
+//         ^ entity.name.type.struct.hlsl
+    {
+        float4 varname;
+
+        #if defined(TOKEN)
+//      ^ keyword.control.preprocessor.hlsl
+//          ^ keyword.control.preprocessor.hlsl
+//                  ^ constant.other.hlsl
+            int4 varname2;
+        #endif
+    };
+
+    typedef struct
+//  ^ keyword.control.hlsl
+//          ^ storage.type.struct.hlsl
+    {
+        float4 varname;
+
+        float4 varname;
+
+        #if defined(TOKEN)
+//      ^ keyword.control.preprocessor.hlsl
+//          ^ keyword.control.preprocessor.hlsl
+//                  ^ constant.other.hlsl
+            int4 varname2;
+        #endif
+    } s_struct_name;
+//    ^ entity.name.type.struct.hlsl
+
+    float FunctionName(float param1, int2 param2, structName param3)
+//  ^ storage.type.scalar.hlsl
+//        ^ entity.name.function.hlsl
+    {
+        return 5.0f;
+//      ^ keyword.control.hlsl
+//             ^ constant.numeric.hlsl
+    }
+}

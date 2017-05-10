@@ -37,6 +37,11 @@ contexts:
       captures:
         1: storage.type.struct.hlsl
         2: entity.name.type.struct.hlsl
+      set:
+        - match: \{
+          set:
+            - match: \}
+              pop: true
 
     - match: \b((0(x|X)[0-9a-fA-F]*)|(([0-9]+\.?[0-9]*)|(\.[0-9]+))((e|E)(\+|-)?[0-9]+)?)(d|f|u)?\b
       scope: constant.numeric.hlsl
