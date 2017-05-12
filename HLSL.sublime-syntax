@@ -100,7 +100,6 @@ contexts:
     - match: \b(false|FALSE|NULL|true|TRUE)\b
       scope: constant.language.hlsl
 
-    - match: (\+|\-|\*|\/|=)
       scope: keyword.operator.hlsl
 
     - match: \b(sampler|sampler1D|sampler2D|sampler3D|SamplerComparisonState|samplerCUBE|sampler_state|SamplerState)\b
