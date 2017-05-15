@@ -12,7 +12,7 @@ scope: source.hlsl
 variables:
   valid_variable: '[A-Za-z_][A-Za-z_0-9]*'
   reusable_value_types: (?:bool|double|float|half|int|uint)
-  texture_dimensions: (?:1D|2D|3D|Cube)
+  texture_dimensions: (?:1D|2D(?:MS)?|3D|Cube)
   scalar_types: \b(?:{{reusable_value_types}}|dword|min10float|min16float|min12int|min16int|min16uint|void)\b
   vector_types: \b(?:{{reusable_value_types}}(?:[1-4]))\b
   matrix_types: \b(?:{{reusable_value_types}}(?:[1-4])(?:x)(?:[1-4])|(?:matrix))\b
@@ -86,7 +86,7 @@ contexts:
     - match: \b(in|out|inout)\b
       scope: variable.other.copy-modifier.hlsl
 
-    - match: \b(centroid|column_major|const|extern|groupshared|inline|nointerpolation|noperspective|packoffset|precise|row_major|shared|static|uniform|volatile)\b
+    - match: \b(centroid|column_major|const|extern|groupshared|inline|nointerpolation|noperspective|precise|row_major|shared|static|uniform|volatile)\b
       scope: storage.modifier.hlsl
 
     - match: \b(snorm|unorm)\b
@@ -127,7 +127,7 @@ contexts:
 
 
   register:
-    - match: \bregister\b
+    - match: \b(register|packoffset)\b
       scope: keyword.register.hlsl
       set:
         - match: \(
