@@ -28,6 +28,18 @@ return float(5.0);
 // <- keyword.control.preprocessor.hlsl
 //            ^ storage.type.vector.hlsl
 
+#if defined(TOKEN)
+    #define TOKEN float3(0.0f, 1.0f, 1.0f)
+//  ^ keyword.control.preprocessor.hlsl
+//                ^ storage.type.vector.hlsl
+#endif
+
+#ifdef TOKEN
+    #define TOKEN float3(0.0f, 1.0f, 1.0f)
+//  ^ keyword.control.preprocessor.hlsl
+//                ^ storage.type.vector.hlsl
+#endif
+
 cbuffer BufferName : register(b0)
 //^ storage.type.buffer.hlsl
 //                   ^ keyword.register.hlsl
@@ -175,6 +187,7 @@ namespace TestSpace
 //                  ^ constant.other.hlsl
             int4 varname2;
         #endif
+        
         varname FunctionName(float param1, int2 param2, inout structName param3, uniform bool IsTrue = false)
 //      ^ storage.type.hlsl
 //              ^ entity.name.function.hlsl

@@ -161,7 +161,7 @@ contexts:
 
 
   preprocessor_keywords:
-    - match: ^\s*#\s*(define|elif|else|endif|error|if|ifdef|ifndef|include|line|pragma|undef)\b
+    - match: ^\s*#\s*(elif|else|endif|error|if|ifdef|ifndef|include|line|pragma|undef)\b
       scope: keyword.control.preprocessor.hlsl
 
 
