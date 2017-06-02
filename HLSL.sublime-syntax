@@ -5,7 +5,11 @@
 name: HLSL
 
 file_extensions:
-  - [hlsl, fx, fxh]
+  - fx
+  - fxh
+  - hlsl
+  - hlsli
+  - usf
 
 scope: source.hlsl
 
