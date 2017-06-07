@@ -1,0 +1,8 @@
+<snippet>
+	<description>Saturate Intrinsic</description>
+	<content>
+		<![CDATA[saturate(${1:/* x */})]]>
+	</content>
+	<tabTrigger>saturate</tabTrigger>
+	<scope>source.hlsl</scope>
+</snippet>
