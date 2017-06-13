@@ -1,0 +1,8 @@
+<snippet>
+	<description>D3DCOLORtoUBYTE4 Intrinsic</description>
+	<content>
+		<![CDATA[D3DCOLORtoUBYTE4(${1:/* x */})]]>
+	</content>
+	<tabTrigger>D3DCOLORtoUBYTE4</tabTrigger>
+	<scope>source.hlsl</scope>
+</snippet>
