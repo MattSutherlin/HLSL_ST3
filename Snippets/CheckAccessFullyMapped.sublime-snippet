@@ -1,0 +1,8 @@
+<snippet>
+	<description>CheckAccessFullyMapped Intrinsic</description>
+	<content>
+		<![CDATA[CheckAccessFullyMapped(${1:/* status */})]]>
+	</content>
+	<tabTrigger>CheckAccessFullyMapped</tabTrigger>
+	<scope>source.hlsl</scope>
+</snippet>

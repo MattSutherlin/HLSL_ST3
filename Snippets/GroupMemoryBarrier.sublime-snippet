@@ -1,0 +1,8 @@
+<snippet>
+	<description>GroupMemoryBarrier Intrinsic</description>
+	<content>
+		<![CDATA[GroupMemoryBarrier();]]>
+	</content>
+	<tabTrigger>GroupMemoryBarrier</tabTrigger>
+	<scope>source.hlsl</scope>
+</snippet>

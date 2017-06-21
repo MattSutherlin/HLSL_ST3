@@ -1,0 +1,8 @@
+<snippet>
+	<description>Rsqrt Intrinsic</description>
+	<content>
+		<![CDATA[rsqrt(${1:/* x */})]]>
+	</content>
+	<tabTrigger>rsqrt</tabTrigger>
+	<scope>source.hlsl</scope>
+</snippet>

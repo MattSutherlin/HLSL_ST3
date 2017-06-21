@@ -1,0 +1,8 @@
+<snippet>
+	<description>AllMemoryBarrierWithGroupSync Intrinsic</description>
+	<content>
+		<![CDATA[AllMemoryBarrierWithGroupSync();]]>
+	</content>
+	<tabTrigger>AllMemoryBarrierWithGroupSync</tabTrigger>
+	<scope>source.hlsl</scope>
+</snippet>
