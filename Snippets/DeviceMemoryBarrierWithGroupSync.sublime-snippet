@@ -1,0 +1,8 @@
+<snippet>
+	<description>DeviceMemoryBarrierWithGroupSync Intrinsic</description>
+	<content>
+		<![CDATA[DeviceMemoryBarrierWithGroupSync();]]>
+	</content>
+	<tabTrigger>DeviceMemoryBarrierWithGroupSync</tabTrigger>
+	<scope>source.hlsl</scope>
+</snippet>

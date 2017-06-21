@@ -1,0 +1,8 @@
+<snippet>
+	<description>InterlockedExchange Intrinsic</description>
+	<content>
+		<![CDATA[InterlockedExchange(${1:/* dest */}, ${2:/* value */}, ${3:/* out original_value */});]]>
+	</content>
+	<tabTrigger>InterlockedExchange</tabTrigger>
+	<scope>source.hlsl</scope>
+</snippet>
