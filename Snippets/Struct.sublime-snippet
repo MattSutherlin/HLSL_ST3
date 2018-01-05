@@ -1,5 +1,5 @@
 <snippet>
-	<name>Types</name>
+	<description>Types</description>
 	<content>
 <![CDATA[struct ${1:${TM_FILENAME/(.+)\..+|.*/$/:name}}
 {
