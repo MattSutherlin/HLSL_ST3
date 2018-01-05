@@ -1,5 +1,5 @@
 <snippet>
-	<description>All Intrinsic</description>
+	<description>Intrinsics</description>
 	<content>
 		<![CDATA[all(${1:/* x */})]]>
 	</content>

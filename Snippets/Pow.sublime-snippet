@@ -1,5 +1,5 @@
 <snippet>
-	<description>Pow Intrinsic</description>
+	<description>Intrinsics</description>
 	<content>
 		<![CDATA[pow(${1:/* x */}, ${2:/* y */})]]>
 	</content>

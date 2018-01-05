@@ -1,5 +1,5 @@
 <snippet>
-	<description>Rcp Intrinsic</description>
+	<description>Intrinsics</description>
 	<content>
 		<![CDATA[rcp(${1:/* x */})]]>
 	</content>

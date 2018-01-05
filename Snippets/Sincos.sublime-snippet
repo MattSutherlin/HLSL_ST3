@@ -1,5 +1,5 @@
 <snippet>
-	<description>Sincos Intrinsic</description>
+	<description>Intrinsics</description>
 	<content>
 		<![CDATA[sincos(${1:/* x */}, ${2:/* out s */}, ${3:/* out c */});]]>
 	</content>

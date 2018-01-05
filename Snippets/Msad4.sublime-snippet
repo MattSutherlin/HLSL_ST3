@@ -1,5 +1,5 @@
 <snippet>
-	<description>Msad4 Intrinsic</description>
+	<description>Intrinsics</description>
 	<content>
 		<![CDATA[msad4(${1:/* reference */}, ${2:/* source */}, ${3:/* accum */})]]>
 	</content>

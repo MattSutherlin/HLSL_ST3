@@ -1,5 +1,5 @@
 <snippet>
-	<description>Asin Intrinsic</description>
+	<description>Intrinsics</description>
 	<content>
 		<![CDATA[asin(${1:/* x */})]]>
 	</content>

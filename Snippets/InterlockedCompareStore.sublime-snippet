@@ -1,5 +1,5 @@
 <snippet>
-	<description>InterlockedCompareStore Intrinsic</description>
+	<description>Intrinsics</description>
 	<content>
 		<![CDATA[InterlockedCompareStore(${1:/* dest */}, ${2:/* compare_value */}, ${3:/* value */});]]>
 	</content>

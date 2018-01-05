@@ -1,5 +1,5 @@
 <snippet>
-	<description>If Condition</description>
+	<description>Conditionals</description>
 	<content>
 <![CDATA[if (${1:/* condition */})
 {

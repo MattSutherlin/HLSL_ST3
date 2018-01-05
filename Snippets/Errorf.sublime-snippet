@@ -1,5 +1,5 @@
 <snippet>
-	<description>Errorf Intrinsic</description>
+	<description>Intrinsics</description>
 	<content>
 		<![CDATA[errorf(${1:/* format */}, ${2:/* ... */});]]>
 	</content>

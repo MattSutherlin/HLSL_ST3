@@ -1,5 +1,5 @@
 <snippet>
-	<description>Ddx Intrinsic</description>
+	<description>Intrinsics</description>
 	<content>
 		<![CDATA[ddx(${1:/* x */})]]>
 	</content>

@@ -1,5 +1,5 @@
 <snippet>
-	<description>Cosh Intrinsic</description>
+	<description>Intrinsics</description>
 	<content>
 		<![CDATA[cosh(${1:/* x */})]]>
 	</content>

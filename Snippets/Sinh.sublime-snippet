@@ -1,5 +1,5 @@
 <snippet>
-	<description>Sinh Intrinsic</description>
+	<description>Intrinsics</description>
 	<content>
 		<![CDATA[sinh(${1:/* x */})]]>
 	</content>

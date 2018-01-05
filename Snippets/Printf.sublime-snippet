@@ -1,5 +1,5 @@
 <snippet>
-	<description>Printf Intrinsic</description>
+	<description>Intrinsics</description>
 	<content>
 		<![CDATA[printf(${1:/* format */}, ${2:/* ... */});]]>
 	</content>

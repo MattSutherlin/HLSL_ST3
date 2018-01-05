@@ -1,5 +1,5 @@
 <snippet>
-	<description>Max Intrinsic</description>
+	<description>Intrinsics</description>
 	<content>
 		<![CDATA[max(${1:/* x */}, ${2:/* y */})]]>
 	</content>

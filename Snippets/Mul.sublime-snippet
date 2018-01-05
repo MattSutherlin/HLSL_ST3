@@ -1,5 +1,5 @@
 <snippet>
-	<description>Mul Intrinsic</description>
+	<description>Intrinsics</description>
 	<content>
 		<![CDATA[mul(${1:/* x */}, ${2:/* y */})]]>
 	</content>

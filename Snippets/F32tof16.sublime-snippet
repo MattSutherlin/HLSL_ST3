@@ -1,5 +1,5 @@
 <snippet>
-	<description>F32tof16 Intrinsic</description>
+	<description>Intrinsics</description>
 	<content>
 		<![CDATA[f32tof16(${1:/* value */})]]>
 	</content>

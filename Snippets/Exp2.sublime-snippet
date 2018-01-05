@@ -1,5 +1,5 @@
 <snippet>
-	<description>Exp2 Intrinsic</description>
+	<description>Intrinsics</description>
 	<content>
 		<![CDATA[exp2(${1:/* x */})]]>
 	</content>

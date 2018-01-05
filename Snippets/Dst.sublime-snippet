@@ -1,5 +1,5 @@
 <snippet>
-	<description>Dst Intrinsic</description>
+	<description>Intrinsics</description>
 	<content>
 		<![CDATA[dst(${1:/* src0 */}, ${2:/* src1 */})]]>
 	</content>

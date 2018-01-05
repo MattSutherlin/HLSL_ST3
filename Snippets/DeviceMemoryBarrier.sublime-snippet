@@ -1,5 +1,5 @@
 <snippet>
-	<description>DeviceMemoryBarrier Intrinsic</description>
+	<description>Intrinsics</description>
 	<content>
 		<![CDATA[DeviceMemoryBarrier();]]>
 	</content>

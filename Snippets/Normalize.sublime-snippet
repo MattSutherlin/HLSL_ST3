@@ -1,5 +1,5 @@
 <snippet>
-	<description>Normalize Intrinsic</description>
+	<description>Intrinsics</description>
 	<content>
 		<![CDATA[normalize(${1:/* x */})]]>
 	</content>

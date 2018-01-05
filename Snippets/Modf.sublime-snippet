@@ -1,5 +1,5 @@
 <snippet>
-	<description>Modf Intrinsic</description>
+	<description>Intrinsics</description>
 	<content>
 		<![CDATA[modf(${1:/* x */}, ${2:/* out ip */})]]>
 	</content>

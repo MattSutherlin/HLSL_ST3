@@ -1,5 +1,5 @@
 <snippet>
-	<description>InterlockedXor Intrinsic</description>
+	<description>Intrinsics</description>
 	<content>
 		<![CDATA[InterlockedXor(${1:/* dest */}, ${2:/* value */}, ${3:/* out original_value */});]]>
 	</content>

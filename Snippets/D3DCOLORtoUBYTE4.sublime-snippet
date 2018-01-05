@@ -1,5 +1,5 @@
 <snippet>
-	<description>D3DCOLORtoUBYTE4 Intrinsic</description>
+	<description>Intrinsics</description>
 	<content>
 		<![CDATA[D3DCOLORtoUBYTE4(${1:/* x */})]]>
 	</content>

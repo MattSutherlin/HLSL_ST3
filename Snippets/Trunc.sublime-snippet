@@ -1,5 +1,5 @@
 <snippet>
-	<description>Trunc Intrinsic</description>
+	<description>Intrinsics</description>
 	<content>
 		<![CDATA[trunc(${1:/* x */})]]>
 	</content>

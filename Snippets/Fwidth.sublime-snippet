@@ -1,5 +1,5 @@
 <snippet>
-	<description>Fwidth Intrinsic</description>
+	<description>Intrinsics</description>
 	<content>
 		<![CDATA[fwidth(${1:/* x */})]]>
 	</content>

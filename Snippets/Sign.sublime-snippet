@@ -1,5 +1,5 @@
 <snippet>
-	<description>Sign Intrinsic</description>
+	<description>Intrinsics</description>
 	<content>
 		<![CDATA[sign(${1:/* x */})]]>
 	</content>

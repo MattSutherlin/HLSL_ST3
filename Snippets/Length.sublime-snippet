@@ -1,5 +1,5 @@
 <snippet>
-	<description>Length Intrinsic</description>
+	<description>Intrinsics</description>
 	<content>
 		<![CDATA[length(${1:/* x */})]]>
 	</content>

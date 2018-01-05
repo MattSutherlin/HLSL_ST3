@@ -1,5 +1,5 @@
 <snippet>
-	<description>Floor Intrinsic</description>
+	<description>Intrinsics</description>
 	<content>
 		<![CDATA[floor(${1:/* x */})]]>
 	</content>

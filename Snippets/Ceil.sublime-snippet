@@ -1,5 +1,5 @@
 <snippet>
-	<description>Ceil Intrinsic</description>
+	<description>Intrinsics</description>
 	<content>
 		<![CDATA[ceil(${1:/* x */})]]>
 	</content>

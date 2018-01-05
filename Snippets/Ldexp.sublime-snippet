@@ -1,5 +1,5 @@
 <snippet>
-	<description>Ldexp Intrinsic</description>
+	<description>Intrinsics</description>
 	<content>
 		<![CDATA[ldexp(${1:/* x */}, ${2:/* exp */})]]>
 	</content>

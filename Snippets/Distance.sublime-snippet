@@ -1,5 +1,5 @@
 <snippet>
-	<description>Distance Intrinsic</description>
+	<description>Intrinsics</description>
 	<content>
 		<![CDATA[distance(${1:/* x */}, ${2:/* y */})]]>
 	</content>

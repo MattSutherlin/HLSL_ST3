@@ -1,5 +1,5 @@
 <snippet>
-	<description>Frac Intrinsic</description>
+	<description>Intrinsics</description>
 	<content>
 		<![CDATA[frac(${1:/* x */})]]>
 	</content>
