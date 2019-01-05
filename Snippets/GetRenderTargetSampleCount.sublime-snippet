@@ -1,0 +1,8 @@
+<snippet>
+	<description>Intrinsics</description>
+	<content>
+		<![CDATA[GetRenderTargetSampleCount()]]>
+	</content>
+	<tabTrigger>GetRenderTargetSampleCount</tabTrigger>
+	<scope>source.hlsl</scope>
+</snippet>
