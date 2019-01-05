@@ -147,7 +147,12 @@ contexts:
 
     - match: (\b{{valid_variable}})(?:\s*)(?:\()
       captures:
-        1: entity.name.function-call.hlsl
+        1: variable.function.hlsl
+      push:
+        - include: prototype
+        - meta_scope: meta.function-call.hlsl
+        - match: '\)'
+          pop: true
 
 
   modifiers:
