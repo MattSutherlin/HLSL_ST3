@@ -1,0 +1,8 @@
+<snippet>
+	<description>Intrinsics</description>
+	<content>
+		<![CDATA[GetRenderTargetSamplePosition(${1:/* Index */})]]>
+	</content>
+	<tabTrigger>GetRenderTargetSamplePosition</tabTrigger>
+	<scope>source.hlsl</scope>
+</snippet>

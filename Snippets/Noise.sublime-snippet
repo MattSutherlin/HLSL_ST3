@@ -1,5 +1,5 @@
 <snippet>
-	<description>Noise Intrinsic</description>
+	<description>Intrinsics</description>
 	<content>
 		<![CDATA[noise(${1:/* x */})]]>
 	</content>

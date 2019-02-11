@@ -1,5 +1,5 @@
 <snippet>
-	<description>InterlockedMax Intrinsic</description>
+	<description>Intrinsics</description>
 	<content>
 		<![CDATA[InterlockedMax(${1:/* dest */}, ${2:/* value */}, ${3:/* out original_value */});]]>
 	</content>

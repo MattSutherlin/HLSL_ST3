@@ -1,5 +1,5 @@
 <snippet>
-	<description>Countbits Intrinsic</description>
+	<description>Intrinsics</description>
 	<content>
 		<![CDATA[countbits(${1:/* value */})]]>
 	</content>

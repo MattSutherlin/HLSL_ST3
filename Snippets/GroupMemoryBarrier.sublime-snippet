@@ -1,5 +1,5 @@
 <snippet>
-	<description>GroupMemoryBarrier Intrinsic</description>
+	<description>Intrinsics</description>
 	<content>
 		<![CDATA[GroupMemoryBarrier();]]>
 	</content>

@@ -1,5 +1,5 @@
 <snippet>
-	<description>Tanh Intrinsic</description>
+	<description>Intrinsics</description>
 	<content>
 		<![CDATA[tanh(${1:/* x */})]]>
 	</content>

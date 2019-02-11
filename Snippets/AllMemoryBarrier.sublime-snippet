@@ -1,5 +1,5 @@
 <snippet>
-	<description>AllMemoryBarrier Intrinsic</description>
+	<description>Intrinsics</description>
 	<content>
 		<![CDATA[AllMemoryBarrier();]]>
 	</content>

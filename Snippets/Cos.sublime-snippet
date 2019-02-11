@@ -1,5 +1,5 @@
 <snippet>
-	<description>Cos Intrinsic</description>
+	<description>Intrinsics</description>
 	<content>
 		<![CDATA[cos(${1:/* x */})]]>
 	</content>

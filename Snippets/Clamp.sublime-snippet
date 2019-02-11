@@ -1,5 +1,5 @@
 <snippet>
-	<description>Clamp Intrinsic</description>
+	<description>Intrinsics</description>
 	<content>
 		<![CDATA[clamp(${1:/* x */}, ${2:/* min */}, ${3:/* max */})]]>
 	</content>

@@ -1,5 +1,5 @@
 <snippet>
-	<description>Lit Intrinsic</description>
+	<description>Intrinsics</description>
 	<content>
 		<![CDATA[lit(${1:/* n_dot_l */}, ${2:/* n_dot_h */}, ${3:/* m */})]]>
 	</content>

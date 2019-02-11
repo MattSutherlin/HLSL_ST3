@@ -1,5 +1,5 @@
 <snippet>
-	<description>Faceforward Intrinsic</description>
+	<description>Intrinsics</description>
 	<content>
 		<![CDATA[faceforward(${1:/* n */}, ${2:/* i */}, ${3:/* ng */})]]>
 	</content>

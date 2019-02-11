@@ -1,5 +1,5 @@
 <snippet>
-	<description>Atan Intrinsic</description>
+	<description>Intrinsics</description>
 	<content>
 		<![CDATA[atan(${1:/* x */})]]>
 	</content>

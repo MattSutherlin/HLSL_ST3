@@ -169,7 +169,7 @@ varname FunctionName(float param1, int2 param2, inout structName param3, uniform
 float result = FunctionName(param1, param2, param3);
 // <- storage.type.scalar.hlsl
 //           ^ keyword.operator.hlsl
-//             ^ entity.name.function-call.hlsl
+//             ^ variable.function.hlsl
 
 namespace TestSpace
 // <- keyword.control.namespace.hlsl

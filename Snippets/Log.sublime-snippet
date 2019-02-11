@@ -1,5 +1,5 @@
 <snippet>
-	<description>Log Intrinsic</description>
+	<description>Intrinsics</description>
 	<content>
 		<![CDATA[log(${1:/* x */})]]>
 	</content>

@@ -1,5 +1,5 @@
 <snippet>
-	<description>Ddy Intrinsic</description>
+	<description>Intrinsics</description>
 	<content>
 		<![CDATA[ddy(${1:/* x */})]]>
 	</content>

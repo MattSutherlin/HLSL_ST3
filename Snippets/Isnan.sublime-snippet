@@ -1,5 +1,5 @@
 <snippet>
-	<description>Isnan Intrinsic</description>
+	<description>Intrinsics</description>
 	<content>
 		<![CDATA[isnan(${1:/* x */})]]>
 	</content>

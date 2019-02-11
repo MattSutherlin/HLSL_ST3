@@ -1,5 +1,5 @@
 <snippet>
-	<description>Determinant Intrinsic</description>
+	<description>Intrinsics</description>
 	<content>
 		<![CDATA[determinant(${1:/* m */})]]>
 	</content>

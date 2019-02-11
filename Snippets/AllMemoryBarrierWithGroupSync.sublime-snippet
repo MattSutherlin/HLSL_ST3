@@ -1,5 +1,5 @@
 <snippet>
-	<description>AllMemoryBarrierWithGroupSync Intrinsic</description>
+	<description>Intrinsics</description>
 	<content>
 		<![CDATA[AllMemoryBarrierWithGroupSync();]]>
 	</content>

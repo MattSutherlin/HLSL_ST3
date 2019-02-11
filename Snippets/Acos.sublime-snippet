@@ -1,5 +1,5 @@
 <snippet>
-	<description>Acos Intrinsic</description>
+	<description>Intrinsics</description>
 	<content>
 		<![CDATA[acos(${1:/* x */})]]>
 	</content>

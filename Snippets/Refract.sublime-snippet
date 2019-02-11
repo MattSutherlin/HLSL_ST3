@@ -1,5 +1,5 @@
 <snippet>
-	<description>Refract Intrinsic</description>
+	<description>Intrinsics</description>
 	<content>
 		<![CDATA[refract(${1:/* i */}, ${2:/* n */}, ${3:/* r */})]]>
 	</content>

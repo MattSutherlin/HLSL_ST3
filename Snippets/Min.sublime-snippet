@@ -1,5 +1,5 @@
 <snippet>
-	<description>Min Intrinsic</description>
+	<description>Intrinsics</description>
 	<content>
 		<![CDATA[min(${1:/* x */}, ${2:/* y */})]]>
 	</content>

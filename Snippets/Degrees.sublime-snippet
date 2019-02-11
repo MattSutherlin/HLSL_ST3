@@ -1,5 +1,5 @@
 <snippet>
-	<description>Degrees Intrinsic</description>
+	<description>Intrinsics</description>
 	<content>
 		<![CDATA[degrees(${1:/* x */})]]>
 	</content>

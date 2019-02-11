@@ -1,5 +1,5 @@
 <snippet>
-	<description>Abort Intrinsic</description>
+	<description>Intrinsics</description>
 	<content>
 		<![CDATA[abort();]]>
 	</content>

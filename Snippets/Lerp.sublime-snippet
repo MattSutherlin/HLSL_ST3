@@ -1,5 +1,5 @@
 <snippet>
-	<description>Lerp Intrinsic</description>
+	<description>Intrinsics</description>
 	<content>
 		<![CDATA[lerp(${1:/* x */}, ${2:/* y */}, ${3:/* s */})]]>
 	</content>

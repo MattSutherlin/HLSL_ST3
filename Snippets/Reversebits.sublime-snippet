@@ -1,5 +1,5 @@
 <snippet>
-	<description>Reversebits Intrinsic</description>
+	<description>Intrinsics</description>
 	<content>
 		<![CDATA[reversebits(${1:/* value */})]]>
 	</content>

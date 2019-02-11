@@ -1,5 +1,5 @@
 <snippet>
-	<description>Frexp Intrinsic</description>
+	<description>Intrinsics</description>
 	<content>
 		<![CDATA[frexp(${1:/* x */}, ${2:/* exp */})]]>
 	</content>

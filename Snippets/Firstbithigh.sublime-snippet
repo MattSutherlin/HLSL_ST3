@@ -1,5 +1,5 @@
 <snippet>
-	<description>Firstbithigh Intrinsic</description>
+	<description>Intrinsics</description>
 	<content>
 		<![CDATA[firstbithigh(${1:/* value */})]]>
 	</content>

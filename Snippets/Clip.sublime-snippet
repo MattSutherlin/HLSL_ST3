@@ -1,5 +1,5 @@
 <snippet>
-	<description>Clip Intrinsic</description>
+	<description>Intrinsics</description>
 	<content>
 		<![CDATA[clip(${1:/* x */});]]>
 	</content>

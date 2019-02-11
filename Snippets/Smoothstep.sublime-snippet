@@ -1,5 +1,5 @@
 <snippet>
-	<description>Smoothstep Intrinsic</description>
+	<description>Intrinsics</description>
 	<content>
 		<![CDATA[smoothstep(${1:/* min */}, ${2:/* max */}, ${3:/* x */})]]>
 	</content>

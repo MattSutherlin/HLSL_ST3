@@ -1,5 +1,5 @@
 <snippet>
-	<description>InterlockedAdd Intrinsic</description>
+	<description>Intrinsics</description>
 	<content>
 		<![CDATA[InterlockedAdd(${1:/* dest */}, ${2:/* value */}, ${3:/* out original_value */});]]>
 	</content>

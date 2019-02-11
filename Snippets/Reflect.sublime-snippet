@@ -1,5 +1,5 @@
 <snippet>
-	<description>Reflect Intrinsic</description>
+	<description>Intrinsics</description>
 	<content>
 		<![CDATA[reflect(${1:/* i */}, ${2:/* n */})]]>
 	</content>

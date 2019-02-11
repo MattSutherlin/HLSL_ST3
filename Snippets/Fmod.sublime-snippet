@@ -1,5 +1,5 @@
 <snippet>
-	<description>Fmod Intrinsic</description>
+	<description>Intrinsics</description>
 	<content>
 		<![CDATA[fmod(${1:/* x */}, ${2:/* y */})]]>
 	</content>

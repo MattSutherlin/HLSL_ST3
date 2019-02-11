@@ -1,5 +1,5 @@
 <snippet>
-	<description>Transpose Intrinsic</description>
+	<description>Intrinsics</description>
 	<content>
 		<![CDATA[transpose(${1:/* x */})]]>
 	</content>

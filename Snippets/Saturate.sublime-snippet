@@ -1,5 +1,5 @@
 <snippet>
-	<description>Saturate Intrinsic</description>
+	<description>Intrinsics</description>
 	<content>
 		<![CDATA[saturate(${1:/* x */})]]>
 	</content>
