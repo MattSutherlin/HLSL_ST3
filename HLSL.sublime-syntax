@@ -24,6 +24,7 @@ variables:
 
 contexts:
   prototype:
+    - include: preprocessor_include
     - include: string
     - include: comments
     - include: modifiers
@@ -169,9 +170,59 @@ contexts:
       scope: storage.type.float.modifier.hlsl
 
 
+  preprocessor_comments:
+    - match: /\*
+      scope: punctuation.definition.comment.hlsl
+      push:
+        - meta_scope: comment.block.hlsl
+        - match: '\\$\n'
+          scope: punctuation.separator.continuation.hlsl
+        - match: \*/
+          scope: punctuation.definition.comment.hlsl
+          pop: true
+    - match: //
+      scope: punctuation.definition.comment.hlsl
+      push:
+        - meta_scope: comment.line.double-slash.hlsl
+        - match: '(\\)$\n'
+          captures:
+            1: punctuation.separator.continuation.hlsl
+          pop: true
+        - match: (?=\n)
+          pop: true
+
+
+  preprocessor_include:
+    - match: ^\s*#\s*(include)\b
+      scope: keyword.control.preprocessor.include.hlsl
+      push:
+        - meta_scope: meta.preprocessor.include.hlsl
+        - include: preprocessor_line_ending
+        - include: preprocessor_comments
+        - match: '"'
+          scope: punctuation.definition.string.begin.hlsl
+          push:
+            - meta_content_scope: string.quoted.double.include.hlsl
+            - match: '"'
+              scope: punctuation.definition.string.end.hlsl
+              pop: true
+        - match: <
+          scope: punctuation.definition.string.begin.hlsl
+          push:
+            - meta_content_scope: string.quoted.other.lt-gt.include.hlsl
+            - match: ">"
+              scope: punctuation.definition.string.end.hlsl
+              pop: true
+
+
   preprocessor_keywords:
-    - match: ^\s*#\s*(elif|else|endif|error|if|ifdef|ifndef|include|line|pragma|undef)\b
+    - match: ^\s*#\s*(elif|else|endif|error|if|ifdef|ifndef|line|pragma|undef)\b
       scope: keyword.control.preprocessor.hlsl
+
+
+  preprocessor_line_ending:
+    - match: $\n
+      pop: true
 
 
   preprocessor_tokens:
