@@ -1,0 +1,15 @@
+// THESE ARE THE SETTINGS DEFAULT - ONLY EDIT THE USER SETTINGS
+{
+	// This is a list of root paths that can be accessed in the following block of include paths for convenience
+	"OpenHeaderBasePaths":
+	[
+	],
+
+	// Base path usage syntax is "$base_path[index]\\<additional relative path>"
+	// EX: First base path is "C:\\path\\to\\project\\dir"
+	// Then "$base_path[0]\\path\\to\\shader\\includes\\" would generate
+	// C:\\path\\to\\project\\dir\\path\\to\\shader\\includes\\
+	"OpenHeaderIncludePaths":
+	[
+	]
+}

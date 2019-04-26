@@ -1,0 +1,32 @@
+[
+	{
+		"caption": "Preferences",
+		"id": "preferences",
+		"children":
+		[
+			{
+				"caption": "Package Settings",
+				"id": "package-settings",
+				"children":
+				[
+					{
+						"caption": "HLSL Tools",
+						"id": "hlsl_tools",
+						"children":
+						[
+							{
+								"caption": "Settings",
+								"command": "edit_settings",
+								"args":
+								{
+									"base_file": "${packages}/HLSL Syntax/HLSL Syntax.sublime-settings",
+									"user_file": "${packages}/User/HLSL Syntax.sublime-settings"
+								}
+							}
+						]
+					}
+				]
+			}
+		]
+	}
+]

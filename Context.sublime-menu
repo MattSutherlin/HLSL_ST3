@@ -1,0 +1,6 @@
+[
+	{
+		"caption": "Open HLSL Header",
+		"command": "open_included_hlsl_file"
+	}
+]
