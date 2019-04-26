@@ -10,6 +10,7 @@ file_extensions:
   - hlsl
   - hlsli
   - usf
+  - ush
 
 scope: source.hlsl
 
