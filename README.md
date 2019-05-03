@@ -1,10 +1,12 @@
 # HLSL_ST3
-HLSL syntax highlighting for Sublime Text 3
+HLSL tools for Sublime Text 3
 
-I'm just trying to provide a better, more fully featured syntax definition for HLSL.
+I'm just trying to provide a better, more fully featured editing environment for HLSL.
 
-A large part of that is hooking up various things to Sublime's symbol indexer, making them work with GoToDefinition.  So far I have functions and structs working, and I have function definitions separated from call-sites in an effort to keep the symbol list a little cleaner.  The eventual goal is to make everything properly indexed in a way that it's reasonable to create scope-aware autocompletions and really be able to look at Sublime as a real HLSL IDE.  And until I finally get there, I'm just hoping to provide people with a better HLSL writing experience.
+A large part of that is the syntax file, where the goal is to hook as much as possile into Sublime's symbol indexer in the most correct, most granular way possible.  Functions (and function-esque macros) will link between defintions and call sites in both directions, via GoTo Defintion and GoTo Reference.  Structs link from usage to definition, via GoTo Definition.  Most everything else will at least get scoped for theme coloration, but more universal coverage towards scope-aware autocompletions is a (long-term) work in progress.
 
-This works best when all of your shared shader source is in your active sublime-project file.  Then GoToDefinition will work across everything in the project.  Otherwise it will only work across currently opened files.
+Additionally, right clicking include directives to open the referenced file is now supported.  By default, it will attempt to open relative to the same directory as the incuding file, but user settings allow additional include paths to be provided.
+
+Everything works best when your shader source is in an active sublime-project file.  Otherwise, some features may only work across open files instead of all of your files.
 
 Best with my HLSL-centric theme, Rocklobster:  https://github.com/MattSutherlin/RockLobster_ST3Theme
