@@ -98,7 +98,7 @@ contexts:
     - match: \b(break|continue|discard|do|else|for|if|return|switch|while)\b
       scope: keyword.control.hlsl
 
-    - match: \[(allow_uav_condition|branch|call|fastopt|flatten|forcecase|loop|unroll)\]
+    - match: \[(allow_uav_condition|branch|call|earlydepthstencil|fastopt|flatten|forcecase|loop|unroll)\]
       scope: keyword.control.hint.hlsl
 
 
