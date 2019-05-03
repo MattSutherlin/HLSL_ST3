@@ -16,9 +16,9 @@ scope: source.hlsl
 
 variables:
   valid_variable: '[A-Za-z_][A-Za-z_0-9]*'
-  reusable_value_types: (?:bool|double|float|half|int|uint)
+  reusable_value_types: (?:bool|double|float|half|int|min10float|min16float|min12int|min16int|min16uint|uint)
   texture_dimensions: (?:1D|2D(?:MS)?|3D|Cube)
-  scalar_types: \b(?:{{reusable_value_types}}|dword|min10float|min16float|min12int|min16int|min16uint|void)\b
+  scalar_types: \b(?:{{reusable_value_types}}|dword|void)\b
   vector_types: \b(?:{{reusable_value_types}}(?:[1-4]))\b
   matrix_types: \b(?:{{reusable_value_types}}(?:[1-4])(?:x)(?:[1-4])|(?:matrix))\b
   texture_types: \b(?:texture|(?:Texture{{texture_dimensions}}(?:Array)?))\b
@@ -98,7 +98,7 @@ contexts:
     - match: \b(break|continue|discard|do|else|for|if|return|switch|while)\b
       scope: keyword.control.hlsl
 
-    - match: \[(branch|flatten|loop|unroll)\]
+    - match: \[(allow_uav_condition|branch|call|fastopt|flatten|forcecase|loop|unroll)\]
       scope: keyword.control.hint.hlsl
 
 
@@ -164,7 +164,7 @@ contexts:
     - match: \b(in|out|inout)\b
       scope: variable.other.copy-modifier.hlsl
 
-    - match: \b(centroid|column_major|const|extern|groupshared|inline|nointerpolation|noperspective|precise|row_major|shared|static|uniform|volatile)\b
+    - match: \b(centroid|column_major|const|extern|groupshared|inline|linear|nointerpolation|noperspective|precise|row_major|shared|static|uniform|volatile)\b
       scope: storage.modifier.hlsl
 
     - match: \b(snorm|unorm)\b
