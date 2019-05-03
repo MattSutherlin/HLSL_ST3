@@ -5,10 +5,12 @@
 name: HLSL
 
 file_extensions:
+  - compute
   - fx
   - fxh
   - hlsl
   - hlsli
+  - shader
   - usf
   - ush
 
