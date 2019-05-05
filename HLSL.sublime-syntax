@@ -5,6 +5,7 @@
 name: HLSL
 
 file_extensions:
+  - cginclude
   - compute
   - fx
   - fxh
