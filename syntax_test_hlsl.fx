@@ -241,3 +241,71 @@ namespace TestSpace
 //             ^ constant.numeric.hlsl
     }
 }
+
+
+// Test all combinations of texture dimensions and modifiers
+
+Texture1D
+// <- storage.type.texture.hlsl
+RWTexture1D
+// <- storage.type.texture.hlsl
+Texture1DArray
+// <- storage.type.texture.hlsl
+RWTexture1DArray
+// <- storage.type.texture.hlsl
+Texture1DMS             // Invalid
+// <- source.hlsl
+RWTexture1DMS           // Invalid
+// <- source.hlsl
+Texture1DMSArray        // Invalid
+// <- source.hlsl
+RWTexture1DMSArray      // Invalid
+// <- source.hlsl
+Texture2D
+// <- storage.type.texture.hlsl
+RWTexture2D
+// <- storage.type.texture.hlsl
+Texture2DArray
+// <- storage.type.texture.hlsl
+RWTexture2DArray
+// <- storage.type.texture.hlsl
+Texture2DMS
+// <- storage.type.texture.hlsl
+RWTexture2DMS           // Invalid
+// <- source.hlsl
+Texture2DMSArray
+// <- storage.type.texture.hlsl
+RWTexture2DMSArray      // Invalid
+// <- source.hlsl
+Texture3D
+// <- storage.type.texture.hlsl
+RWTexture3D
+// <- storage.type.texture.hlsl
+Texture3DArray          // Invalid
+// <- source.hlsl
+RWTexture3DArray        // Invalid
+// <- source.hlsl
+Texture3DMS             // Invalid
+// <- source.hlsl
+RWTexture3DMS           // Invalid
+// <- source.hlsl
+Texture3DMSArray        // Invalid
+// <- source.hlsl
+RWTexture3DMSArray      // Invalid
+// <- source.hlsl
+TextureCube
+// <- storage.type.texture.hlsl
+RWTextureCube           // Invalid
+// <- source.hlsl
+TextureCubeArray
+// <- storage.type.texture.hlsl
+RWTextureCubeArray      // Invalid
+// <- source.hlsl
+TextureCubeMS           // Invalid
+// <- source.hlsl
+RWTextureCubeMS         // Invalid
+// <- source.hlsl
+TextureCubeMSArray      // Invalid
+// <- source.hlsl
+RWTextureCubeMSArray    // Invalid
+// <- source.hlsl

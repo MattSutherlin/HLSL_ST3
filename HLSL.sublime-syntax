@@ -20,11 +20,14 @@ scope: source.hlsl
 variables:
   valid_variable: '[A-Za-z_][A-Za-z_0-9]*'
   reusable_value_types: (?:bool|double|float|half|int|min10float|min16float|min12int|min16int|min16uint|uint)
-  texture_dimensions: (?:1D|2D(?:MS)?|3D|Cube)
   scalar_types: \b(?:{{reusable_value_types}}|dword|void)\b
   vector_types: \b(?:{{reusable_value_types}}(?:[1-4]))\b
   matrix_types: \b(?:{{reusable_value_types}}(?:[1-4])(?:x)(?:[1-4])|(?:matrix))\b
-  texture_types: \b(?:texture|(?:Texture{{texture_dimensions}}(?:Array)?))\b
+  texture_1d_types: (?:(?:RW)?Texture1D(?:Array)?)
+  texture_2d_types: (?:(?:RW)?Texture2D(?:Array)?|Texture2D(?:MS)?(?:Array)?)
+  texture_3d_types: (?:(?:RW)?Texture3D)
+  texture_cube_types: (?:TextureCube(?:Array)?)
+  texture_types: \b(?:texture|{{texture_1d_types}}|{{texture_2d_types}}|{{texture_3d_types}}|{{texture_cube_types}})\b
 
 contexts:
   prototype:
