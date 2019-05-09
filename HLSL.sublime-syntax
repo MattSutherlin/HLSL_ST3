@@ -34,6 +34,7 @@ contexts:
     - include: preprocessor_include
     - include: string
     - include: comments
+    - include: invalid
     - include: modifiers
     - include: register
     - include: buffers
@@ -168,6 +169,11 @@ contexts:
 
     - match: \b(WaveActiveAllEqual|WaveActiveBitAnd|WaveActiveBitOr|WaveActiveBitXor|WaveActiveCountBits|WaveActiveMax|WaveActiveMin|WaveActiveProduct|WaveActiveSum|WaveActiveAllTrue|WaveActiveAnyTrue|WaveActiveBallot|WaveGetLaneCount|WaveGetLaneIndex|WaveIsFirstLane|WavePrefixCountBits|WavePrefixProduct|WavePrefixSum|WaveReadLaneFirst|WaveReadLaneAt)\b
       scope: keyword.function.intrinsic.hlsl
+
+
+  invalid:
+    - match: \b(auto|catch|char|const_cast|delete|dynamic_cast|enum|explicit|friend|goto|long|mutable|new|operator|private|protected|public|reinterpret_cast|short|signed|sizeof|static_cast|template|this|throw|try|typename|union|using|virtual)\b
+      scope: invalid.reserved.hlsl
 
 
   misc:
