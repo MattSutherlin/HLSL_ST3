@@ -1,0 +1,8 @@
+<snippet>
+	<description>Intrinsics</description>
+	<content>
+		<![CDATA[Process2DQuadTessFactorsMin(${1:/* RawEdgeFactors */}, ${2:/* InsideScale */}, ${3:/* out RoundedEdgeTessFactors */}, ${4:/* out RoundedInsideTessFactors */}, ${5:/* out UnroundedInsideTessFactors */});]]>
+	</content>
+	<tabTrigger>Process2DQuadTessFactorsMin</tabTrigger>
+	<scope>source.hlsl</scope>
+</snippet>

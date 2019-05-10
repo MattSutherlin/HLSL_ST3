@@ -1,0 +1,8 @@
+<snippet>
+	<description>Intrinsics</description>
+	<content>
+		<![CDATA[ProcessIsolineTessFactors(${1:/* RawDetailFactor */}, ${2:/* RawDensityFactor */}, ${3:/* out RoundedDetailFactor */}, ${4:/* out RoundedDensityFactor */});]]>
+	</content>
+	<tabTrigger>ProcessIsolineTessFactors</tabTrigger>
+	<scope>source.hlsl</scope>
+</snippet>
