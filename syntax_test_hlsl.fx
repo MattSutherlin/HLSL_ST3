@@ -253,14 +253,14 @@ Texture1DArray
 // <- storage.type.texture.hlsl
 RWTexture1DArray
 // <- storage.type.texture.hlsl
-Texture1DMS             // Invalid
-// <- source.hlsl
-RWTexture1DMS           // Invalid
-// <- source.hlsl
-Texture1DMSArray        // Invalid
-// <- source.hlsl
-RWTexture1DMSArray      // Invalid
-// <- source.hlsl
+Texture1DMS
+// <- -storage.type.texture.hlsl
+RWTexture1DMS
+// <- -storage.type.texture.hlsl
+Texture1DMSArray
+// <- -storage.type.texture.hlsl
+RWTexture1DMSArray
+// <- -storage.type.texture.hlsl
 Texture2D
 // <- storage.type.texture.hlsl
 RWTexture2D
@@ -271,41 +271,73 @@ RWTexture2DArray
 // <- storage.type.texture.hlsl
 Texture2DMS
 // <- storage.type.texture.hlsl
-RWTexture2DMS           // Invalid
-// <- source.hlsl
+RWTexture2DMS
+// <- -storage.type.texture.hlsl
 Texture2DMSArray
 // <- storage.type.texture.hlsl
-RWTexture2DMSArray      // Invalid
-// <- source.hlsl
+RWTexture2DMSArray
+// <- -storage.type.texture.hlsl
 Texture3D
 // <- storage.type.texture.hlsl
 RWTexture3D
 // <- storage.type.texture.hlsl
-Texture3DArray          // Invalid
-// <- source.hlsl
-RWTexture3DArray        // Invalid
-// <- source.hlsl
-Texture3DMS             // Invalid
-// <- source.hlsl
-RWTexture3DMS           // Invalid
-// <- source.hlsl
-Texture3DMSArray        // Invalid
-// <- source.hlsl
-RWTexture3DMSArray      // Invalid
-// <- source.hlsl
+Texture3DArray
+// <- -storage.type.texture.hlsl
+RWTexture3DArray
+// <- -storage.type.texture.hlsl
+Texture3DMS
+// <- -storage.type.texture.hlsl
+RWTexture3DMS
+// <- -storage.type.texture.hlsl
+Texture3DMSArray
+// <- -storage.type.texture.hlsl
+RWTexture3DMSArray
+// <- -storage.type.texture.hlsl
 TextureCube
 // <- storage.type.texture.hlsl
-RWTextureCube           // Invalid
-// <- source.hlsl
+RWTextureCube
+// <- -storage.type.texture.hlsl
 TextureCubeArray
 // <- storage.type.texture.hlsl
-RWTextureCubeArray      // Invalid
-// <- source.hlsl
-TextureCubeMS           // Invalid
-// <- source.hlsl
-RWTextureCubeMS         // Invalid
-// <- source.hlsl
-TextureCubeMSArray      // Invalid
-// <- source.hlsl
-RWTextureCubeMSArray    // Invalid
-// <- source.hlsl
+RWTextureCubeArray
+// <- -storage.type.texture.hlsl
+TextureCubeMS
+// <- -storage.type.texture.hlsl
+RWTextureCubeMS
+// <- -storage.type.texture.hlsl
+TextureCubeMSArray
+// <- -storage.type.texture.hlsl
+RWTextureCubeMSArray
+// <- -storage.type.texture.hlsl
+
+
+// Test numeric types
+
+    0
+//  ^ constant.numeric.hlsl
+    0f
+//  ^ -constant.numeric.hlsl
+    0H
+//  ^ -constant.numeric.hlsl
+    0.0
+//  ^^^ constant.numeric.hlsl
+    0.f
+//  ^^^ constant.numeric.hlsl
+    0.0F
+//  ^^^^ constant.numeric.hlsl
+    .0f
+//  ^^^ constant.numeric.hlsl
+    .0h
+//  ^^^ constant.numeric.hlsl
+    .f
+//  ^^ -constant.numeric.hlsl
+    0x0
+//  ^^^ constant.numeric.hlsl
+    0X0F
+//  ^^^^ constant.numeric.hlsl
+    0x0u
+//  ^^^^ constant.numeric.hlsl
+    1.5e+01
+//  ^^^^^^^ constant.numeric.hlsl
+    1.5E-05
+//  ^^^^^^^ constant.numeric.hlsl
