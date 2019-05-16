@@ -180,8 +180,8 @@ contexts:
 
 
   misc:
-    #         Octa/hex ints                 Floats                                                          Decimal ints
-    - match: ((\b0[xX][0-9a-fA-F]+[lLuU]?)|((?![.][fFhH])(\b[0-9]*)?[.][0-9]*([eE][-+][0-9]+)?[fFhHlLuU]?)|(\b[0-9]+[lLuU]?))\b
+    #         Octa/hex ints                 Floats                                                                         Decimal ints
+    - match: ((\b0[xX][0-9a-fA-F]+[lLuU]?)|((?![.][fFhH])(([.][0-9]+)|((\b[0-9]+)[.][0-9]*))([eE][-+][0-9]+)?[fFhHlLuU]?)|(\b[0-9]+[lLuU]?))\b
       scope: constant.numeric.hlsl
 
     - match: \b(false|FALSE|NULL|true|TRUE)\b
