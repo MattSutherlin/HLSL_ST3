@@ -219,7 +219,10 @@ contexts:
 
 
   modifiers:
-    - match: \.[xyzwrgba]+\b
+    - match: ([.][xyzw]+)\b
+      scope: variable.other.dot-access.hlsl
+
+    - match: ([.][rgba]+)\b
       scope: variable.other.dot-access.hlsl
 
     - match: \b(in|out|inout)\b
