@@ -218,7 +218,7 @@ contexts:
     - match: \b(ComparisonFunc|ComparisonFilter)\b
       scope: variable.other.sampler-comparison.state.hlsl
 
-    - match: ({{valid_variable}})(\:\:)
+    - match: ({{valid_variable}})(::)
       captures:
         1: entity.name.scope.hlsl
         2: keyword.operator.scope.hlsl
