@@ -81,6 +81,9 @@ contexts:
     - match: '{{texture_types}}'
       scope: storage.type.texture.hlsl
 
+    - match: \b(string)\b
+      scope: storage.type.string.hlsl
+
 
   buffers:
     - match: \b(AppendStructuredBuffer|Buffer|ByteAddressBuffer|cbuffer|ConsumeStructuredBuffer|RWBuffer|RWByteAddressBuffer|RWStructuredBuffer|StructuredBuffer|tbuffer)\b
@@ -177,15 +180,30 @@ contexts:
 
 
   misc:
-    #         Octa/hex ints                 Floats                                                       Decimal ints
-    - match: ((\b0[xX][0-9a-fA-F]+[lLuU]?)|((?!.[fFhH])(\b[0-9]*)?[.][0-9]*([eE][-+][0-9]+)?[fFhHlLuU]?)|(\b[0-9]+[lLuU]?))\b
+    #         Octa/hex ints                 Floats                                                            Decimal ints
+    - match: ((\b0[xX][0-9a-fA-F]+[lLuU]?)|((([.][0-9]+)|((\b[0-9]+)[.][0-9]*))([eE][-+][0-9]+)?[fFhHlLuU]?)|(\b[0-9]+[lLuU]?))\b
       scope: constant.numeric.hlsl
 
     - match: \b(false|FALSE|NULL|true|TRUE)\b
       scope: constant.language.hlsl
 
-    - match: (\+|\-|\*|\/|=|<<|>>|\^|!)
-      scope: keyword.operator.hlsl
+    - match: (&&|\|\|)
+      scope: keyword.operator.boolean.hlsl
+
+    - match: (~|<<|>>|&|\||\^|<<=|>>=|&=|\|=|\^=)
+      scope: keyword.operator.bitwise.hlsl
+
+    - match: (==|!=|<=|>=)
+      scope: keyword.operator.comparison.hlsl
+
+    - match: (=|\+=|\-=|\*=|\/=|%=)
+      scope: keyword.operator.assignment.hlsl
+
+    - match: (\+|\-|\*|\/|%)
+      scope: keyword.operator.arithmetic.hlsl
+
+    - match: (!)
+      scope: keyword.operator.unary.hlsl
 
     - match: \b(sampler|sampler1D|sampler2D|sampler3D|SamplerComparisonState|samplerCUBE|sampler_state|SamplerState)\b
       scope: storage.type.sampler.hlsl
@@ -200,7 +218,7 @@ contexts:
     - match: \b(ComparisonFunc|ComparisonFilter)\b
       scope: variable.other.sampler-comparison.state.hlsl
 
-    - match: ({{valid_variable}})(\:\:)
+    - match: ({{valid_variable}})(::)
       captures:
         1: entity.name.scope.hlsl
         2: keyword.operator.scope.hlsl
@@ -216,7 +234,10 @@ contexts:
 
 
   modifiers:
-    - match: \.[xyzwrgba]+\b
+    - match: ([.][xyzw]+)\b
+      scope: variable.other.dot-access.hlsl
+
+    - match: ([.][rgba]+)\b
       scope: variable.other.dot-access.hlsl
 
     - match: \b(in|out|inout)\b
