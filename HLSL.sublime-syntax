@@ -81,6 +81,9 @@ contexts:
     - match: '{{texture_types}}'
       scope: storage.type.texture.hlsl
 
+    - match: \b(string)\b
+      scope: storage.type.string.hlsl
+
 
   buffers:
     - match: \b(AppendStructuredBuffer|Buffer|ByteAddressBuffer|cbuffer|ConsumeStructuredBuffer|RWBuffer|RWByteAddressBuffer|RWStructuredBuffer|StructuredBuffer|tbuffer)\b
