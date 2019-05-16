@@ -187,8 +187,23 @@ contexts:
     - match: \b(false|FALSE|NULL|true|TRUE)\b
       scope: constant.language.hlsl
 
-    - match: (\+|\-|\*|\/|=|<<|>>|\^|!)
-      scope: keyword.operator.hlsl
+    - match: (&&|\|\|)
+      scope: keyword.operator.boolean.hlsl
+
+    - match: (~|<<|>>|&|\||\^|<<=|>>=|&=|\|=|\^=)
+      scope: keyword.operator.bitwise.hlsl
+
+    - match: (==|!=|<=|>=)
+      scope: keyword.operator.comparison.hlsl
+
+    - match: (=|\+=|\-=|\*=|\/=|%=)
+      scope: keyword.operator.assignment.hlsl
+
+    - match: (\+|\-|\*|\/|%)
+      scope: keyword.operator.arithmetic.hlsl
+
+    - match: (!)
+      scope: keyword.operator.unary.hlsl
 
     - match: \b(sampler|sampler1D|sampler2D|sampler3D|SamplerComparisonState|samplerCUBE|sampler_state|SamplerState)\b
       scope: storage.type.sampler.hlsl
