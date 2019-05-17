@@ -12,8 +12,8 @@
 //    ^^^^^^^^^^^^^^^^ -storage.type.scalar.hlsl
   bool varname = bool(5);
 //^^^^ storage.type.scalar.hlsl
-//               ^^^^ storage.type.scalar.hlsl
 //    ^^^^^^^^^^^ -storage.type.scalar.hlsl
+//               ^^^^ storage.type.scalar.hlsl
 //                   ^^^^ -storage.type.scalar.hlsl
 
   double varname;
@@ -24,8 +24,8 @@
 //      ^^^^^^^^^^^^^^^ -storage.type.scalar.hlsl
   double varname = double(5.0);
 //^^^^^^ storage.type.scalar.hlsl
-//                 ^^^^^^ storage.type.scalar.hlsl
 //      ^^^^^^^^^^^ -storage.type.scalar.hlsl
+//                 ^^^^^^ storage.type.scalar.hlsl
 //                       ^^^^^^ -storage.type.scalar.hlsl
 
   dword varname;
@@ -36,8 +36,8 @@
 //     ^^^^^^^^^^^^^ -storage.type.scalar.hlsl
   dword varname = dword(5.0);
 //^^^^^ storage.type.scalar.hlsl
-//                ^^^^^ storage.type.scalar.hlsl
 //     ^^^^^^^^^^^ -storage.type.scalar.hlsl
+//                ^^^^^ storage.type.scalar.hlsl
 //                     ^^^^^^ -storage.type.scalar.hlsl
 
   half varname;
@@ -48,8 +48,8 @@
 //    ^^^^^^^^^^^^^^^^ -storage.type.scalar.hlsl
   half varname = half(5);
 //^^^^ storage.type.scalar.hlsl
-//               ^^^^ storage.type.scalar.hlsl
 //    ^^^^^^^^^^^ -storage.type.scalar.hlsl
+//               ^^^^ storage.type.scalar.hlsl
 //                   ^^^^ -storage.type.scalar.hlsl
 
   float varname;
@@ -60,8 +60,8 @@
 //     ^^^^^^^^^^^^^^^^ -storage.type.scalar.hlsl
   float varname = float(5.0);
 //^^^^^ storage.type.scalar.hlsl
-//                ^^^^^ storage.type.scalar.hlsl
 //     ^^^^^^^^^^^ -storage.type.scalar.hlsl
+//                ^^^^^ storage.type.scalar.hlsl
 //                     ^^^^^^ -storage.type.scalar.hlsl
 
   int varname;
@@ -72,8 +72,8 @@
 //   ^^^^^^^^^^^^^ -storage.type.scalar.hlsl
   int varname = int(5.0);
 //^^^ storage.type.scalar.hlsl
-//              ^^^ storage.type.scalar.hlsl
 //   ^^^^^^^^^^^ -storage.type.scalar.hlsl
+//              ^^^ storage.type.scalar.hlsl
 //                 ^^^^^^ -storage.type.scalar.hlsl
 
   min10float varname;
@@ -84,8 +84,8 @@
 //          ^^^^^^^^^^^^^^^^ -storage.type.scalar.hlsl
   min10float varname = min10float(5.0);
 //^^^^^^^^^^ storage.type.scalar.hlsl
-//                     ^^^^^^^^^^ storage.type.scalar.hlsl
 //          ^^^^^^^^^^^ -storage.type.scalar.hlsl
+//                     ^^^^^^^^^^ storage.type.scalar.hlsl
 //                               ^^^^^^ -storage.type.scalar.hlsl
 
   min16float varname;
@@ -96,8 +96,8 @@
 //          ^^^^^^^^^^^^^^^^ -storage.type.scalar.hlsl
   min16float varname = min16float(5.0);
 //^^^^^^^^^^ storage.type.scalar.hlsl
-//                     ^^^^^^^^^^ storage.type.scalar.hlsl
 //          ^^^^^^^^^^^ -storage.type.scalar.hlsl
+//                     ^^^^^^^^^^ storage.type.scalar.hlsl
 //                               ^^^^^^ -storage.type.scalar.hlsl
 
   min12int varname;
@@ -108,8 +108,8 @@
 //        ^^^^^^^^^^^^^ -storage.type.scalar.hlsl
   min12int varname = min12int(5.0);
 //^^^^^^^^ storage.type.scalar.hlsl
-//                   ^^^^^^^^ storage.type.scalar.hlsl
 //        ^^^^^^^^^^^ -storage.type.scalar.hlsl
+//                   ^^^^^^^^ storage.type.scalar.hlsl
 //                           ^^^^^^ -storage.type.scalar.hlsl
 
   min16int varname;
@@ -120,8 +120,8 @@
 //        ^^^^^^^^^^^^^ -storage.type.scalar.hlsl
   min16int varname = min16int(5.0);
 //^^^^^^^^ storage.type.scalar.hlsl
-//                   ^^^^^^^^ storage.type.scalar.hlsl
 //        ^^^^^^^^^^^ -storage.type.scalar.hlsl
+//                   ^^^^^^^^ storage.type.scalar.hlsl
 //                           ^^^^^^ -storage.type.scalar.hlsl
 
   min16uint varname;
@@ -132,8 +132,8 @@
 //         ^^^^^^^^^^^^^ -storage.type.scalar.hlsl
   min16uint varname = min16uint(5.0);
 //^^^^^^^^^ storage.type.scalar.hlsl
-//                    ^^^^^^^^^ storage.type.scalar.hlsl
 //         ^^^^^^^^^^^ -storage.type.scalar.hlsl
+//                    ^^^^^^^^^ storage.type.scalar.hlsl
 //                             ^^^^^^ -storage.type.scalar.hlsl
 
   uint varname;
@@ -144,8 +144,8 @@
 //    ^^^^^^^^^^^^^ -storage.type.scalar.hlsl
   uint varname = uint(5);
 //^^^^ storage.type.scalar.hlsl
-//               ^^^^ storage.type.scalar.hlsl
 //    ^^^^^^^^^^^ -storage.type.scalar.hlsl
+//               ^^^^ storage.type.scalar.hlsl
 //                   ^^^^ -storage.type.scalar.hlsl
 
   void
@@ -156,6 +156,9 @@
 // Vector types
 
 {
+  dword2 varname;
+//^^^^^^^^^^^^^^^ -storage.type.vector.hlsl
+
   float2 varname;
 //^^^^^^ storage.type.vector.hlsl
   float2 varname = { 5.0, 5.0 };
@@ -163,21 +166,36 @@
 //      ^^^^^^^^^^^^^^^^^^^^^^^^ -storage.type.vector.hlsl
   float2 varname = float2(5.0, 5.0);
 //^^^^^^ storage.type.vector.hlsl
-//                 ^^^^^^ storage.type.vector.hlsl
 //      ^^^^^^^^^^^ -storage.type.vector.hlsl
+//                 ^^^^^^ storage.type.vector.hlsl
 //                       ^^^^^^^^^^^ -storage.type.vector.hlsl
+
+  float5 varname;
+//^^^^^^^^^^^^^^^ -storage.type.vector.hlsl
+
+  void2 varname;
+//^^^^^^^^^^^^^^ -storage.type.vector.hlsl
 }
 
 
 // Matrix types
 
 {
+  dword2x2 varname;
+//^^^^^^^^^^^^^^^^^ -storage.type.matrix.hlsl
+
   float2x2 varname;
 //^^^^^^^^ storage.type.matrix.hlsl
 //        ^^^^^^^^^ -storage.type.matrix.hlsl
   float2x2 varname = { 5.0, 5.0, 5.0, 5.0 };
 //^^^^^^^^ storage.type.matrix.hlsl
 //        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ -storage.type.matrix.hlsl
+
+  float4x5 varname;
+//^^^^^^^^^^^^^^^^^ -storage.type.matrix.hlsl
+
+  void2x2 varname;
+//^^^^^^^^^^^^^^^^ -storage.type.vector.hlsl
 }
 
 
