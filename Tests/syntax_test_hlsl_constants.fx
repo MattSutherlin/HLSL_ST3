@@ -1,5 +1,6 @@
 // SYNTAX TEST "HLSL.sublime-syntax"
 
+
 {
   0
 //^ constant.numeric.hlsl
