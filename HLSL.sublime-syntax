@@ -44,6 +44,7 @@ contexts:
     - include: preprocessor_tokens
     - include: preprocessor_keywords
     - include: basic_built_in_types
+    - include: operators
     - include: misc
 
 
@@ -187,24 +188,6 @@ contexts:
     - match: \b(false|FALSE|NULL|true|TRUE)\b
       scope: constant.language.hlsl
 
-    - match: (&&|\|\|)
-      scope: keyword.operator.boolean.hlsl
-
-    - match: (~|<<|>>|&|\||\^|<<=|>>=|&=|\|=|\^=)
-      scope: keyword.operator.bitwise.hlsl
-
-    - match: (==|!=|<=|>=)
-      scope: keyword.operator.comparison.hlsl
-
-    - match: (=|\+=|\-=|\*=|\/=|%=)
-      scope: keyword.operator.assignment.hlsl
-
-    - match: (\+|\-|\*|\/|%)
-      scope: keyword.operator.arithmetic.hlsl
-
-    - match: (!)
-      scope: keyword.operator.unary.hlsl
-
     - match: \b(sampler|sampler1D|sampler2D|sampler3D|SamplerComparisonState|samplerCUBE|sampler_state|SamplerState)\b
       scope: storage.type.sampler.hlsl
 
@@ -248,6 +231,26 @@ contexts:
 
     - match: \b(snorm|unorm)\b
       scope: storage.type.float.modifier.hlsl
+
+
+  operators:
+    - match: (&&|\|\|)
+      scope: keyword.operator.boolean.hlsl
+
+    - match: (~|<<|>>|&|\||\^|<<=|>>=|&=|\|=|\^=)
+      scope: keyword.operator.bitwise.hlsl
+
+    - match: (==|!=|<=|>=)
+      scope: keyword.operator.comparison.hlsl
+
+    - match: (=|\+=|\-=|\*=|\/=|%=)
+      scope: keyword.operator.assignment.hlsl
+
+    - match: (\+|\-|\*|\/|%)
+      scope: keyword.operator.arithmetic.hlsl
+
+    - match: (!)
+      scope: keyword.operator.unary.hlsl
 
 
   preprocessor_comments:
