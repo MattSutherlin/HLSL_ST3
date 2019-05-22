@@ -299,7 +299,7 @@ contexts:
 
 
   preprocessor_keywords:
-    - match: ^\s*#\s*(elif|else|endif|error|if|ifdef|ifndef|line|pragma|undef)\b
+    - match: ^\s*#\s*(elif|else|endif|error|if|line|pragma|undef)\b
       scope: keyword.control.preprocessor.hlsl
 
 
@@ -317,12 +317,12 @@ contexts:
         - match: \s*\)
           pop: true
 
-    - match: (#define)(?:\s+)({{valid_variable}})(?:\()
+    - match: (#define)(?:\s+)({{valid_variable}})
       captures:
         1: keyword.control.preprocessor.hlsl
         2: constant.other.hlsl
 
-    - match: (#define)(?:\s+)({{valid_variable}})
+    - match: (#if[n]*def)(?:\s+)({{valid_variable}})
       captures:
         1: keyword.control.preprocessor.hlsl
         2: constant.other.hlsl
