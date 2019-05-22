@@ -22,19 +22,6 @@ struct PS_INPUT
   centroid float4 ScreenTex : TEXCOORD1;
 };
 
-struct varname
-// <- storage.type.struct.hlsl
-//     ^ entity.name.type.struct.hlsl
-{
-    #if defined(TOKEN)
-//              ^ constant.other.hlsl
-        float3 varname3 : POSITION0;
-    #endif
-
-    float varname;
-    int varname;
-};
-
 typedef struct
 //      ^ storage.type.struct.hlsl
 {
@@ -55,33 +42,6 @@ namespace TestSpace
 // <- keyword.control.namespace.hlsl
 //        ^ storage.type.namespace.hlsl
 {
-    struct TestStruct
-//  ^ storage.type.struct.hlsl
-//         ^ entity.name.type.struct.hlsl
-    {
-        float4 varname;
-
-        #if defined(TOKEN)
-//      ^ keyword.control.preprocessor.hlsl
-//          ^ keyword.control.preprocessor.hlsl
-//                  ^ constant.other.hlsl
-            int4 varname2;
-        #endif
-        
-        varname FunctionName(float param1, int2 param2, inout structName param3, uniform bool IsTrue = false)
-//      ^ storage.type.hlsl
-//              ^ entity.name.function.hlsl
-//                           ^ storage.type.scalar.hlsl
-//                                         ^ storage.type.vector.hlsl
-//                                                      ^ variable.other.copy-modifier.hlsl
-//                                                                               ^ storage.modifier.hlsl
-//                                                                                       ^ storage.type.scalar.hlsl
-//                                                                                                     ^ constant.language.hlsl
-        {
-            return result;
-        }
-    };
-
     typedef struct
 //  ^ keyword.control.hlsl
 //          ^ storage.type.struct.hlsl
