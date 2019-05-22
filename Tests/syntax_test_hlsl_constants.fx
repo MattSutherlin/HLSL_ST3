@@ -1,6 +1,8 @@
 // SYNTAX TEST "HLSL.sublime-syntax"
 
 
+// Numerics
+
 {
   0
 //^ constant.numeric.hlsl
@@ -32,4 +34,14 @@
 //^^^^^^^ constant.numeric.hlsl
   .
 //^ -constant.numeric.hlsl
+}
+
+
+// Language
+
+{
+  true
+//^^^^ constant.language.hlsl
+  false
+//^^^^^ constant.language.hlsl
 }
