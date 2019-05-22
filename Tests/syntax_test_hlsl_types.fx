@@ -199,7 +199,6 @@
 }
 
 
-
 // Texture types
 
 {
@@ -281,4 +280,160 @@
 //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ -storage.type.texture.hlsl
   RWTextureCubeMSArray varname : register(t5);
 //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ -storage.type.texture.hlsl
+}
+
+
+// Structs
+
+{
+  struct varname
+//^^^^^^ storage.type.struct.hlsl
+//      ^^^^^^^^ -storage.type.struct.hlsl
+//       ^^^^^^^ entity.name.type.struct.hlsl
+//^^^^^^^ -entity.name.type.struct.hlsl
+  {
+    float varname;
+//  ^^^^^ storage.type.scalar.hlsl
+//       ^^^^^^^^^ -storage.type.scalar.hlsl
+    int3 varname;
+//  ^^^^ storage.type.vector.hlsl
+//      ^^^^^^^^^ -storage.type.vector.hlsl
+    bool4x4 varname;
+//  ^^^^^^^ storage.type.matrix.hlsl
+//         ^^^^^^^^^ -storage.type.matrix.hlsl
+    varname FunctionName(float param1, int2 param2, inout structName param3, uniform bool IsTrue = false)
+//          ^^^^^^^^^^^^ entity.name.function.hlsl
+//  ^^^^^^^^ -entity.name.function.hlsl
+//                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ -entity.name.function.hlsl
+//                       ^^^^^ storage.type.scalar.hlsl
+//                                     ^^^^ storage.type.vector.hlsl
+//                                                  ^^^^^ variable.other.copy-modifier.hlsl
+//                                                                           ^^^^^^^ storage.modifier.hlsl
+//                                                                                   ^^^^ storage.type.scalar.hlsl
+//                                                                                                 ^^^^^ constant.language.hlsl
+    {
+      float result = FunctionName(param1, param2, param3);
+//                   ^^^^^^^^^^^^ variable.function.hlsl
+//    ^^^^^^^^^^^^^^^ -variable.function.hlsl
+//                               ^^^^^^^^^^^^^^^^^^^^^^^^^ -variable.function.hlsl
+//                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.function-call.hlsl
+//    ^^^^^^^^^^^^^^^ -meta.function-call.hlsl
+//                                                       ^ -meta.function-call.hlsl
+
+      return 5.0f;
+//    ^^^^^^ keyword.control.hlsl
+//          ^^^^^^ -keyword.control.hlsl
+//           ^^^^ constant.numeric.hlsl
+//    ^^^^^^^ -constant.numeric.hlsl
+//               ^ -constant.numeric.hlsl
+    }
+
+    #if defined(TOKEN)
+//  ^^^ keyword.control.preprocessor.hlsl
+//      ^^^^^^^ keyword.control.preprocessor.hlsl
+//     ^ -keyword.control.preprocessor.hlsl
+//             ^^^^^^^ -keyword.control.preprocessor.hlsl
+//              ^^^^^ constant.other.hlsl
+//  ^^^^^^^^^^^^ -constant.other.hlsl
+//                   ^ -constant.other.hlsl
+      float varname;
+//    ^^^^^ storage.type.scalar.hlsl
+//         ^^^^^^^^^ -storage.type.scalar.hlsl
+      int3 varname;
+//    ^^^^ storage.type.vector.hlsl
+//        ^^^^^^^^^ -storage.type.vector.hlsl
+      bool4x4 varname;
+//    ^^^^^^^ storage.type.matrix.hlsl
+//           ^^^^^^^^^ -storage.type.matrix.hlsl
+      varname FunctionName(float param1, int2 param2, inout structName param3, uniform bool IsTrue = false)
+//            ^^^^^^^^^^^^ entity.name.function.hlsl
+//    ^^^^^^^^ -entity.name.function.hlsl
+//                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ -entity.name.function.hlsl
+//                         ^^^^^ storage.type.scalar.hlsl
+//                                       ^^^^ storage.type.vector.hlsl
+//                                                    ^^^^^ variable.other.copy-modifier.hlsl
+//                                                                             ^^^^^^^ storage.modifier.hlsl
+//                                                                                     ^^^^ storage.type.scalar.hlsl
+//                                                                                                   ^^^^^ constant.language.hlsl
+      {
+        float result = FunctionName(param1, param2, param3);
+//                     ^^^^^^^^^^^^ variable.function.hlsl
+//      ^^^^^^^^^^^^^^^ -variable.function.hlsl
+//                                 ^^^^^^^^^^^^^^^^^^^^^^^^^ -variable.function.hlsl
+//                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.function-call.hlsl
+//      ^^^^^^^^^^^^^^^ -meta.function-call.hlsl
+//                                                         ^ -meta.function-call.hlsl
+
+        return 5.0f;
+//      ^^^^^^ keyword.control.hlsl
+//            ^^^^^^ -keyword.control.hlsl
+//             ^^^^ constant.numeric.hlsl
+//      ^^^^^^^ -constant.numeric.hlsl
+//                 ^ -constant.numeric.hlsl
+      }
+    #endif
+//  ^^^^^^ keyword.control.preprocessor.hlsl
+  };
+
+  typedef struct
+//^^^^^^^ keyword.control.hlsl
+//       ^^^^^^^ -keyword.control.hlsl
+//        ^^^^^^ storage.type.struct.hlsl
+//^^^^^^^^ -storage.type.struct.hlsl
+  {
+    float4 varname;
+//  ^^^^^^ storage.type.vector.hlsl
+//        ^^^^^^^^^ -storage.type.vector.hlsl
+    varname FunctionName(float param1, int2 param2, inout structName param3, uniform bool IsTrue = false)
+//          ^^^^^^^^^^^^ entity.name.function.hlsl
+//  ^^^^^^^^ -entity.name.function.hlsl
+//                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ -entity.name.function.hlsl
+//                       ^^^^^ storage.type.scalar.hlsl
+//                                     ^^^^ storage.type.vector.hlsl
+//                                                  ^^^^^ variable.other.copy-modifier.hlsl
+//                                                                           ^^^^^^^ storage.modifier.hlsl
+//                                                                                   ^^^^ storage.type.scalar.hlsl
+//                                                                                                 ^^^^^ constant.language.hlsl
+    {
+      float result = FunctionName(param1, param2, param3);
+//                   ^^^^^^^^^^^^ variable.function.hlsl
+//    ^^^^^^^^^^^^^^^ -variable.function.hlsl
+//                               ^^^^^^^^^^^^^^^^^^^^^^^^^ -variable.function.hlsl
+//                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.function-call.hlsl
+//    ^^^^^^^^^^^^^^^ -meta.function-call.hlsl
+//                                                       ^ -meta.function-call.hlsl
+
+      return 5.0f;
+//    ^^^^^^ keyword.control.hlsl
+//          ^^^^^^ -keyword.control.hlsl
+//           ^^^^ constant.numeric.hlsl
+//    ^^^^^^^ -constant.numeric.hlsl
+//               ^ -constant.numeric.hlsl
+    }
+  } s_struct_name;
+//  ^^^^^^^^^^^^^ entity.name.type.struct.hlsl
+//^^ -entity.name.type.struct.hlsl
+//               ^ -entity.name.type.struct.hlsl
+
+  typedef struct
+//^^^^^^^ keyword.control.hlsl
+//       ^^^^^^^ -keyword.control.hlsl
+//        ^^^^^^ storage.type.struct.hlsl
+//^^^^^^^^ -storage.type.struct.hlsl
+  {
+    float4 varname;
+//  ^^^^^^ storage.type.vector.hlsl
+//        ^^^^^^^^^ -storage.type.vector.hlsl
+  } s_struct_name,
+//  ^^^^^^^^^^^^^ entity.name.type.struct.hlsl
+//^^ -entity.name.type.struct.hlsl
+//               ^ -entity.name.type.struct.hlsl
+    s_struct_name_2,
+//  ^^^^^^^^^^^^^^^ entity.name.type.struct.hlsl
+//^^ -entity.name.type.struct.hlsl
+//                 ^ -entity.name.type.struct.hlsl
+    s_struct_name_3;
+//  ^^^^^^^^^^^^^^^ entity.name.type.struct.hlsl
+//^^ -entity.name.type.struct.hlsl
+//                 ^ -entity.name.type.struct.hlsl
 }
