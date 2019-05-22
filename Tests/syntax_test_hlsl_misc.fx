@@ -60,14 +60,6 @@ struct varname
 // <- storage.type.struct.hlsl
 //     ^ entity.name.type.struct.hlsl
 {
-    float varname;
-    int varname;
-};
-
-struct varname
-// <- storage.type.struct.hlsl
-//     ^ entity.name.type.struct.hlsl
-{
     #if defined(TOKEN)
 //              ^ constant.other.hlsl
         float3 varname3 : POSITION0;
@@ -76,28 +68,6 @@ struct varname
     float varname;
     int varname;
 };
-
-typedef struct
-//      ^ storage.type.struct.hlsl
-{
-    float4 varname;
-//  ^ storage.type.vector.hlsl
-    int4 varname2 : TEXCOORD0;
-} s_struct_name;
-// ^ entity.name.type.struct.hlsl
-
-typedef struct
-//      ^ storage.type.struct.hlsl
-{
-    float4 varname;
-//  ^ storage.type.vector.hlsl
-    int4 varname2 : TEXCOORD0;
-}   s_struct_name,
-//  ^ entity.name.type.struct.hlsl
-    s_struct_name_2,
-//  ^ entity.name.type.struct.hlsl
-    s_struct_name_3;
-//  ^ entity.name.type.struct.hlsl
 
 typedef struct
 //      ^ storage.type.struct.hlsl

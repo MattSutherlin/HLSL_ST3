@@ -199,7 +199,6 @@
 }
 
 
-
 // Texture types
 
 {
@@ -281,4 +280,62 @@
 //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ -storage.type.texture.hlsl
   RWTextureCubeMSArray varname : register(t5);
 //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ -storage.type.texture.hlsl
+}
+
+
+// Structs
+
+{
+  struct varname
+//^^^^^^ storage.type.struct.hlsl
+//      ^^^^^^^^ -storage.type.struct.hlsl
+//       ^^^^^^^ entity.name.type.struct.hlsl
+//^^^^^^^ -entity.name.type.struct.hlsl
+  {
+    float varname;
+//  ^^^^^ storage.type.scalar.hlsl
+//       ^^^^^^^^^ -storage.type.scalar.hlsl
+    int3 varname;
+//  ^^^^ storage.type.vector.hlsl
+//      ^^^^^^^^^ -storage.type.vector.hlsl
+    bool4x4 varname;
+//  ^^^^^^^ storage.type.matrix.hlsl
+//         ^^^^^^^^^ -storage.type.matrix.hlsl
+  };
+
+  typedef struct
+//^^^^^^^ keyword.control.hlsl
+//       ^^^^^^^ -keyword.control.hlsl
+//        ^^^^^^ storage.type.struct.hlsl
+//^^^^^^^^ -storage.type.struct.hlsl
+  {
+    float4 varname;
+//  ^^^^^^ storage.type.vector.hlsl
+//        ^^^^^^^^^ -storage.type.vector.hlsl
+  } s_struct_name;
+//  ^^^^^^^^^^^^^ entity.name.type.struct.hlsl
+//^^ -entity.name.type.struct.hlsl
+//               ^ -entity.name.type.struct.hlsl
+
+  typedef struct
+//^^^^^^^ keyword.control.hlsl
+//       ^^^^^^^ -keyword.control.hlsl
+//        ^^^^^^ storage.type.struct.hlsl
+//^^^^^^^^ -storage.type.struct.hlsl
+  {
+    float4 varname;
+//  ^^^^^^ storage.type.vector.hlsl
+//        ^^^^^^^^^ -storage.type.vector.hlsl
+  } s_struct_name,
+//  ^^^^^^^^^^^^^ entity.name.type.struct.hlsl
+//^^ -entity.name.type.struct.hlsl
+//               ^ -entity.name.type.struct.hlsl
+    s_struct_name_2,
+//  ^^^^^^^^^^^^^^^ entity.name.type.struct.hlsl
+//^^ -entity.name.type.struct.hlsl
+//                 ^ -entity.name.type.struct.hlsl
+    s_struct_name_3;
+//  ^^^^^^^^^^^^^^^ entity.name.type.struct.hlsl
+//^^ -entity.name.type.struct.hlsl
+//                 ^ -entity.name.type.struct.hlsl
 }
