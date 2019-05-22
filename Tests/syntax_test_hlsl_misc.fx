@@ -6,10 +6,6 @@
 // "Comment!"
 //^^^^^^^^^^^ comment.line.double-slash.hlsl
 
-return float(5.0);
-// <- keyword.control.hlsl
-//     ^ storage.type.scalar.hlsl
-
 #define TOKEN float3(0.0f, 1.0f, 1.0f)
 // <- keyword.control.preprocessor.hlsl
 //            ^ storage.type.vector.hlsl
@@ -145,13 +141,4 @@ namespace TestSpace
         }
     } s_struct_name;
 //    ^ entity.name.type.struct.hlsl
-
-    float FunctionName(float param1, int2 param2, structName param3)
-//  ^ storage.type.scalar.hlsl
-//        ^ entity.name.function.hlsl
-    {
-        return 5.0f;
-//      ^ keyword.control.hlsl
-//             ^ constant.numeric.hlsl
-    }
 }
