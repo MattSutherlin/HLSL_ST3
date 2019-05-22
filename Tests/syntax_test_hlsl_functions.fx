@@ -43,6 +43,12 @@
 //        ^^^^^^^^^^^^ entity.name.function.hlsl
 //^^^^^^^^ -entity.name.function.hlsl
 //                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ -entity.name.function.hlsl
+//                     ^^^^^ storage.type.scalar.hlsl
+//                                   ^^^^ storage.type.vector.hlsl
+//                                                ^^^^^ variable.other.copy-modifier.hlsl
+//                                                                         ^^^^^^^ storage.modifier.hlsl
+//                                                                                 ^^^^ storage.type.scalar.hlsl
+//                                                                                               ^^^^^ constant.language.hlsl
   {
     float result = FunctionName(param1, param2, param3);
 //                 ^^^^^^^^^^^^ variable.function.hlsl
@@ -52,6 +58,11 @@
 //  ^^^^^^^^^^^^^^^ -meta.function-call.hlsl
 //                                                     ^ -meta.function-call.hlsl
 
-     return result;
+     return 5.0f;
+//   ^^^^^^ keyword.control.hlsl
+//         ^^^^^^ -keyword.control.hlsl
+//          ^^^^ constant.numeric.hlsl
+//   ^^^^^^^ -constant.numeric.hlsl
+//              ^ -constant.numeric.hlsl
   }
 }
