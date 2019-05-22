@@ -6,22 +6,6 @@
 // "Comment!"
 //^^^^^^^^^^^ comment.line.double-slash.hlsl
 
-#define TOKEN float3(0.0f, 1.0f, 1.0f)
-// <- keyword.control.preprocessor.hlsl
-//            ^ storage.type.vector.hlsl
-
-#if defined(TOKEN)
-    #define TOKEN float3(0.0f, 1.0f, 1.0f)
-//  ^ keyword.control.preprocessor.hlsl
-//                ^ storage.type.vector.hlsl
-#endif
-
-#ifdef TOKEN
-    #define TOKEN float3(0.0f, 1.0f, 1.0f)
-//  ^ keyword.control.preprocessor.hlsl
-//                ^ storage.type.vector.hlsl
-#endif
-
 cbuffer BufferName : register(b0)
 //^ storage.type.buffer.hlsl
 //                   ^ keyword.register.hlsl
@@ -37,20 +21,6 @@ struct PS_INPUT
   noperspective float2 Var2 : TEXCOORD0;
   centroid float4 ScreenTex : TEXCOORD1;
 };
-
-#define TOKEN
-//      ^ constant.other.hlsl
-
-#if defined(TOKEN)
-// <- keyword.control.preprocessor.hlsl
-//  ^ keyword.control.preprocessor.hlsl
-//          ^ constant.other.hlsl
-    float3 varname3 : POSITION0;
-#endif
-
-#ifdef TOKEN
-//     ^ constant.other.hlsl
-#endif
 
 struct varname
 // <- storage.type.struct.hlsl
