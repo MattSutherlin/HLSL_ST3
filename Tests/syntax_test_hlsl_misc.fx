@@ -56,17 +56,6 @@ struct PS_INPUT
 //     ^ constant.other.hlsl
 #endif
 
-#define MACRO_FUNCTION(paramName, paramValue) float paramName = paramValue;
-//      ^ entity.name.function.hlsl
-
-struct varname
-// <- storage.type.struct.hlsl
-//     ^ entity.name.type.struct.hlsl
-{
-    float varname;
-    int varname;
-};
-
 struct varname
 // <- storage.type.struct.hlsl
 //     ^ entity.name.type.struct.hlsl
@@ -79,28 +68,6 @@ struct varname
     float varname;
     int varname;
 };
-
-typedef struct
-//      ^ storage.type.struct.hlsl
-{
-    float4 varname;
-//  ^ storage.type.vector.hlsl
-    int4 varname2 : TEXCOORD0;
-} s_struct_name;
-// ^ entity.name.type.struct.hlsl
-
-typedef struct
-//      ^ storage.type.struct.hlsl
-{
-    float4 varname;
-//  ^ storage.type.vector.hlsl
-    int4 varname2 : TEXCOORD0;
-}   s_struct_name,
-//  ^ entity.name.type.struct.hlsl
-    s_struct_name_2,
-//  ^ entity.name.type.struct.hlsl
-    s_struct_name_3;
-//  ^ entity.name.type.struct.hlsl
 
 typedef struct
 //      ^ storage.type.struct.hlsl
@@ -117,45 +84,6 @@ typedef struct
 //  ^ entity.name.type.struct.hlsl
     s_struct_name_2;
 //  ^ entity.name.type.struct.hlsl
-
-Texture1D varname;
-// <- storage.type.texture.hlsl
-
-Texture1DArray varname;
-// <- storage.type.texture.hlsl
-
-float FunctionName(float param1, int2 param2, structName param3)
-// <- storage.type.scalar.hlsl
-//    ^ entity.name.function.hlsl
-{
-    return result;
-}
-
-float2 FunctionName(float param1, int2 param2, structName param3)
-// <- storage.type.vector.hlsl
-//     ^ entity.name.function.hlsl
-{
-    return result;
-}
-
-float2x2 FunctionName(float param1, int2 param2, structName param3)
-// <- storage.type.matrix.hlsl
-//       ^ entity.name.function.hlsl
-{
-    return result;
-}
-
-varname FunctionName(float param1, int2 param2, inout structName param3, uniform bool IsTrue = false)
-// <- storage.type.hlsl
-//      ^ entity.name.function.hlsl
-{
-    return result;
-}
-
-float result = FunctionName(param1, param2, param3);
-// <- storage.type.scalar.hlsl
-//           ^ keyword.operator.assignment.hlsl
-//             ^ variable.function.hlsl
 
 namespace TestSpace
 // <- keyword.control.namespace.hlsl
