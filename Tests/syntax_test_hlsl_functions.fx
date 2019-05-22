@@ -58,11 +58,11 @@
 //  ^^^^^^^^^^^^^^^ -meta.function-call.hlsl
 //                                                     ^ -meta.function-call.hlsl
 
-     return 5.0f;
-//   ^^^^^^ keyword.control.hlsl
-//         ^^^^^^ -keyword.control.hlsl
-//          ^^^^ constant.numeric.hlsl
-//   ^^^^^^^ -constant.numeric.hlsl
-//              ^ -constant.numeric.hlsl
+    return 5.0f;
+//  ^^^^^^ keyword.control.hlsl
+//        ^^^^^^ -keyword.control.hlsl
+//         ^^^^ constant.numeric.hlsl
+//  ^^^^^^^ -constant.numeric.hlsl
+//             ^ -constant.numeric.hlsl
   }
 }
