@@ -106,7 +106,7 @@ contexts:
 
 
   control_keywords:
-    - match: \b(break|continue|discard|do|else|for|if|return|switch|while)\b
+    - match: \b(break|case|continue|discard|do|else|for|if|return|switch|while)\b
       scope: keyword.control.hlsl
 
     - match: \[(allow_uav_condition|branch|call|earlydepthstencil|fastopt|flatten|forcecase|loop|unroll)\]
