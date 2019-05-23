@@ -123,6 +123,15 @@ contexts:
         5: storage.type.hlsl
         6: keyword.control.preprocessor.hlsl
         7: entity.name.function.hlsl
+      push:
+        - include: prototype
+        - match: \)
+          pop: true
+      set:
+        - match: \{
+          set:
+            - match: \}
+              pop: true
 
 
   intrinsics:
