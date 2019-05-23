@@ -6,6 +6,21 @@
 //^^^ keyword.control.hlsl
 //   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ -keyword.control.hlsl
   {
+    if (otherVar)
+//  ^^ keyword.control.hlsl
+//    ^^^^^^^^^^^ -keyword.control.hlsl
+    {
+      continue;
+//    ^^^^^^^^ keyword.control.hlsl
+//            ^ -keyword.control.hlsl
+    }
+    else
+//  ^^^^ keyword.control.hlsl
+    {
+      discard;
+//    ^^^^^^^ keyword.control.hlsl
+//           ^ -keyword.control.hlsl
+    }
   }
 
   while (condition.active())
