@@ -127,11 +127,11 @@ contexts:
         - include: prototype
         - match: \)
           pop: true
-      set:
-        - match: \{
           set:
-            - match: \}
-              pop: true
+            - match: \{
+              set:
+                - match: \}
+                  pop: true
 
 
   intrinsics:
