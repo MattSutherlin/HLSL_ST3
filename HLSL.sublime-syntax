@@ -53,16 +53,18 @@ contexts:
       captures:
         1: storage.type.struct.hlsl
         2: entity.name.type.struct.hlsl
-      set:
+      push:
         - match: \{
-          set:
+          push:
             - match: \}
               pop: true
+          pop: true
 
     - match: (\bnamespace)(?:\s+)({{valid_variable}})
       captures:
         1: keyword.control.namespace.hlsl
         2: storage.type.namespace.hlsl
+      push: namespace_body
 
     - match: \btypedef\b
       scope: keyword.control.hlsl
@@ -240,6 +242,16 @@ contexts:
 
     - match: \b(snorm|unorm)\b
       scope: storage.type.float.modifier.hlsl
+
+
+  namespace_body:
+    - match: \{
+    - include: main
+    - meta_content_scope: meta.namespace.hlsl
+      push:
+        - match: \}
+          pop: true
+      pop: true
 
 
   operators:
