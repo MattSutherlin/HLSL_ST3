@@ -352,11 +352,12 @@ contexts:
   register:
     - match: \b(register|packoffset)\b
       scope: keyword.register.hlsl
-      set:
+      push:
         - match: \(
-          set:
+          push:
             - match: \)
               pop: true
+          pop: true
 
 
   string:
