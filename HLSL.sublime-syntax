@@ -56,7 +56,7 @@ contexts:
       push:
         - match: \{
           push:
-            - match: \}
+            - match: \};
               pop: true
           pop: true
 
