@@ -3,6 +3,22 @@
 
 {
   namespace TestSpace
+//^^^^^^^^^^^^^^^^^^^ meta.namespace.hlsl
+  {
+//^ meta.namespace.hlsl
+    namespace TestSpace2
+//^^^^^^^^^^^^^^^^^^^^^^ meta.namespace.hlsl
+    {
+//  ^ meta.namespace.hlsl
+
+    }
+//  ^ meta.namespace.hlsl
+  }
+//^ meta.namespace.hlsl
+
+//<- -meta.namespace.hlsl
+
+  namespace TestSpace
 //^^^^^^^^^ keyword.control.namespace.hlsl
 //         ^^^^^^^^^^ -keyword.control.namespace.hlsl
 //          ^^^^^^^^^ storage.type.namespace.hlsl
@@ -170,4 +186,5 @@
 //  ^^ -entity.name.type.struct.hlsl
 //                 ^ -entity.name.type.struct.hlsl
   }
+//^ meta.namespace.hlsl
 }

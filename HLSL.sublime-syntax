@@ -50,23 +50,35 @@ contexts:
 
   main:
     - match: (\bstruct\b)(?:\s+)({{valid_variable}})
+      scope: meta.struct.hlsl
       captures:
         1: storage.type.struct.hlsl
         2: entity.name.type.struct.hlsl
-      set:
-        - match: \{
+      push:
+        - meta_content_scope: meta.struct.hlsl
+        - match: ''
           set:
-            - match: \}
+            - meta_scope: meta.struct.hlsl
+            - match: \};
+              scope: punctuation.section.block.end.hlsl
               pop: true
+            - match: \{
+              scope: punctuation.section.block.begin.hlsl
+              push:
+                - match: (?=\};)
+                  pop: true
+                - include: main
 
     - match: (\bnamespace)(?:\s+)({{valid_variable}})
+      scope: meta.namespace.hlsl
       captures:
         1: keyword.control.namespace.hlsl
         2: storage.type.namespace.hlsl
+      push: namespace_body
 
     - match: \btypedef\b
       scope: keyword.control.hlsl
-      set: [typedef_after_typename, typename]
+      push: [typedef_after_typename, typename]
 
 
   basic_built_in_types:
@@ -106,7 +118,7 @@ contexts:
 
 
   control_keywords:
-    - match: \b(break|continue|discard|do|else|for|if|return|switch|while)\b
+    - match: \b(break|case|continue|discard|do|else|for|if|return|switch|while)\b
       scope: keyword.control.hlsl
 
     - match: \[(allow_uav_condition|branch|call|earlydepthstencil|fastopt|flatten|forcecase|loop|unroll)\]
@@ -123,6 +135,15 @@ contexts:
         5: storage.type.hlsl
         6: keyword.control.preprocessor.hlsl
         7: entity.name.function.hlsl
+      push:
+        - include: prototype
+        - match: \)
+          pop: true
+          set:
+            - match: \{
+              set:
+                - match: \}
+                  pop: true
 
 
   intrinsics:
@@ -233,6 +254,22 @@ contexts:
       scope: storage.type.float.modifier.hlsl
 
 
+  namespace_body:
+    - meta_content_scope: meta.namespace.hlsl
+    - match: ''
+      set:
+        - meta_scope: meta.namespace.hlsl
+        - match: \}
+          scope: punctuation.section.block.end.hlsl
+          pop: true
+        - match: \{
+          scope: punctuation.section.block.begin.hlsl
+          push:
+            - match: (?=\})
+              pop: true
+            - include: main
+
+
   operators:
     - match: (&&|\|\|)
       scope: keyword.operator.boolean.hlsl
@@ -331,11 +368,12 @@ contexts:
   register:
     - match: \b(register|packoffset)\b
       scope: keyword.register.hlsl
-      set:
+      push:
         - match: \(
-          set:
+          push:
             - match: \)
               pop: true
+          pop: true
 
 
   string:
@@ -363,10 +401,16 @@ contexts:
     - match: \bstruct\b
       scope: storage.type.struct.hlsl
       set:
+        - meta_scope: meta.struct.hlsl
+        - match: \}
+          scope: punctuation.section.block.end.hlsl
+          pop: true
         - match: \{
-          set:
-            - match: \}
+          scope: punctuation.section.block.begin.hlsl
+          push:
+            - match: (?=\})
               pop: true
+            - include: main
 
     - match: \b{{valid_variable}}\b
       pop: true

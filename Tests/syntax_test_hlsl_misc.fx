@@ -1,10 +1,28 @@
 // SYNTAX TEST "HLSL.sublime-syntax"
 
-// Comment!
-//^^^^^^^^^ comment.line.double-slash.hlsl
 
-// "Comment!"
+{
+  // Comment!
 //^^^^^^^^^^^ comment.line.double-slash.hlsl
+
+  // "Comment!"
+//^^^^^^^^^^^^^ comment.line.double-slash.hlsl
+
+  #include "file.fxh"
+//^^^^^^^^^^^^^^^^^^^ meta.preprocessor.include.hlsl
+//^^^^^^^^ keyword.control.preprocessor.include.hlsl
+//        ^^^^^^^^^^^ -keyword.control.preprocessor.include.hlsl
+//         ^ punctuation.definition.string.begin.hlsl
+//          ^^^^^^^^ string.quoted.double.include.hlsl
+//                  ^ punctuation.definition.string.end.hlsl
+  #include <file.fxh>
+//^^^^^^^^^^^^^^^^^^^ meta.preprocessor.include.hlsl
+//^^^^^^^^ keyword.control.preprocessor.include.hlsl
+//        ^^^^^^^^^^^ -keyword.control.preprocessor.include.hlsl
+//         ^ punctuation.definition.string.begin.hlsl
+//          ^^^^^^^^ string.quoted.other.lt-gt.include.hlsl
+//                  ^ punctuation.definition.string.end.hlsl
+}
 
 cbuffer BufferName : register(b0)
 //^ storage.type.buffer.hlsl
