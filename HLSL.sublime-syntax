@@ -50,17 +50,27 @@ contexts:
 
   main:
     - match: (\bstruct\b)(?:\s+)({{valid_variable}})
+      scope: meta.struct.hlsl
       captures:
         1: storage.type.struct.hlsl
         2: entity.name.type.struct.hlsl
       push:
-        - match: \{
-          push:
+        - meta_content_scope: meta.struct.hlsl
+        - match: ''
+          set:
+            - meta_scope: meta.struct.hlsl
             - match: \};
+              scope: punctuation.section.block.end.hlsl
               pop: true
-          pop: true
+            - match: \{
+              scope: punctuation.section.block.begin.hlsl
+              push:
+                - match: (?=\};)
+                  pop: true
+                - include: main
 
     - match: (\bnamespace)(?:\s+)({{valid_variable}})
+      scope: meta.namespace.hlsl
       captures:
         1: keyword.control.namespace.hlsl
         2: storage.type.namespace.hlsl
@@ -68,7 +78,7 @@ contexts:
 
     - match: \btypedef\b
       scope: keyword.control.hlsl
-      set: [typedef_after_typename, typename]
+      push: [typedef_after_typename, typename]
 
 
   basic_built_in_types:
@@ -245,13 +255,19 @@ contexts:
 
 
   namespace_body:
-    - match: \{
-    - include: main
     - meta_content_scope: meta.namespace.hlsl
-      push:
+    - match: ''
+      set:
+        - meta_scope: meta.namespace.hlsl
         - match: \}
+          scope: punctuation.section.block.end.hlsl
           pop: true
-      pop: true
+        - match: \{
+          scope: punctuation.section.block.begin.hlsl
+          push:
+            - match: (?=\})
+              pop: true
+            - include: main
 
 
   operators:
@@ -385,10 +401,16 @@ contexts:
     - match: \bstruct\b
       scope: storage.type.struct.hlsl
       set:
+        - meta_scope: meta.struct.hlsl
+        - match: \}
+          scope: punctuation.section.block.end.hlsl
+          pop: true
         - match: \{
-          set:
-            - match: \}
+          scope: punctuation.section.block.begin.hlsl
+          push:
+            - match: (?=\})
               pop: true
+            - include: main
 
     - match: \b{{valid_variable}}\b
       pop: true
