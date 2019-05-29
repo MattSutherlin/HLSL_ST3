@@ -64,7 +64,7 @@ class OpenIncludedHlslFileCommand(sublime_plugin.TextCommand):
 					newScopesStr = view.scope_name(index)
 					newScopeList = newScopesStr.split(' ')
 					for newScope in newScopeList:
-						if newScope == ("string.quoted.double.include.hlsl" or "string.quoted.other.lt-gt.include.hlsl"):
+						if newScope == "string.quoted.double.include.hlsl" or newScope == "string.quoted.other.lt-gt.include.hlsl":
 							self.pos = index
 							return True
 		self.pos = -1
