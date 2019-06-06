@@ -148,7 +148,7 @@ contexts:
 
   function_body:
     - include: prototype
-    - meta_content_scope: meta.function.hlsl
+    - meta_content_scope: meta.function.parameters.hlsl
     - match: \)
       set:
         - meta_scope: meta.function.hlsl
