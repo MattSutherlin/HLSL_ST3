@@ -126,24 +126,41 @@ contexts:
 
 
   functions:
-    - match: (?:(?:({{scalar_types}})|({{vector_types}})|({{matrix_types}})|({{texture_types}})|(\b{{valid_variable}})|(#define))\b)(?:\s+)(\b{{valid_variable}})(?:\s*)(?:\()
+    - match: (?:({{scalar_types}})|({{vector_types}})|({{matrix_types}})|({{texture_types}})|(\b{{valid_variable}})\b)(?:\s+)(\b{{valid_variable}})(?:\s*)(?:\()
       captures:
         1: storage.type.scalar.hlsl
         2: storage.type.vector.hlsl
         3: storage.type.matrix.hlsl
         4: storage.type.texture.hlsl
         5: storage.type.hlsl
-        6: keyword.control.preprocessor.hlsl
-        7: entity.name.function.hlsl
+        6: entity.name.function.hlsl
+      push: function_body
+
+    - match: (?:(#define)\b)(?:\s+)(\b{{valid_variable}})(?:\s*)(?:\()
+      captures:
+        1: keyword.control.preprocessor.hlsl
+        2: entity.name.function.hlsl
       push:
         - include: prototype
         - match: \)
           pop: true
-          set:
-            - match: \{
-              set:
-                - match: \}
-                  pop: true
+
+
+  function_body:
+    - include: prototype
+    - meta_content_scope: meta.function.hlsl
+    - match: \)
+      set:
+        - meta_scope: meta.function.hlsl
+        - match: \}
+          scope: punctuation.section.block.end.hlsl
+          pop: true
+        - match: \{
+        - include: prototype
+          scope: punctuation.section.block.begin.hlsl
+          push:
+            - match: (?=\})
+              pop: true
 
 
   intrinsics:
