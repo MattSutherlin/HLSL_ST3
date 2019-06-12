@@ -46,6 +46,7 @@ contexts:
     - include: basic_built_in_types
     - include: operators
     - include: misc
+    - include: numeric_constants
 
 
   main:
@@ -126,24 +127,41 @@ contexts:
 
 
   functions:
-    - match: (?:(?:({{scalar_types}})|({{vector_types}})|({{matrix_types}})|({{texture_types}})|(\b{{valid_variable}})|(#define))\b)(?:\s+)(\b{{valid_variable}})(?:\s*)(?:\()
+    - match: (?:({{scalar_types}})|({{vector_types}})|({{matrix_types}})|({{texture_types}})|(\b{{valid_variable}})\b)(?:\s+)(\b{{valid_variable}})(?:\s*)(?:\()
       captures:
         1: storage.type.scalar.hlsl
         2: storage.type.vector.hlsl
         3: storage.type.matrix.hlsl
         4: storage.type.texture.hlsl
         5: storage.type.hlsl
-        6: keyword.control.preprocessor.hlsl
-        7: entity.name.function.hlsl
+        6: entity.name.function.hlsl
+      push: function_body
+
+    - match: (?:(#define)\b)(?:\s+)(\b{{valid_variable}})(?:\s*)(?:\()
+      captures:
+        1: keyword.control.preprocessor.hlsl
+        2: entity.name.function.hlsl
       push:
         - include: prototype
         - match: \)
           pop: true
-          set:
-            - match: \{
-              set:
-                - match: \}
-                  pop: true
+
+
+  function_body:
+    - include: prototype
+    - meta_content_scope: meta.function.parameters.hlsl
+    - match: \)
+      set:
+        - meta_scope: meta.function.hlsl
+        - match: \}
+          scope: punctuation.section.block.end.hlsl
+          pop: true
+        - match: \{
+        - include: prototype
+          scope: punctuation.section.block.begin.hlsl
+          push:
+            - match: (?=\})
+              pop: true
 
 
   intrinsics:
@@ -202,10 +220,6 @@ contexts:
 
 
   misc:
-    #         Octa/hex ints                 Floats                                                            Decimal ints
-    - match: ((\b0[xX][0-9a-fA-F]+[lLuU]?)|((([.][0-9]+)|((\b[0-9]+)[.][0-9]*))([eE][-+][0-9]+)?[fFhHlLuU]?)|(\b[0-9]+[lLuU]?))\b
-      scope: constant.numeric.hlsl
-
     - match: \b(false|FALSE|NULL|true|TRUE)\b
       scope: constant.language.hlsl
 
@@ -268,6 +282,24 @@ contexts:
             - match: (?=\})
               pop: true
             - include: main
+
+
+  numeric_constants:
+    # Hexadecimal
+    - match: \b0[xX][0-9a-fA-F]+[lLuU]?\b
+      scope: constant.numeric.hlsl
+
+    # Octal
+    - match: \b0[0-7]+[lLuU]?\b
+      scope: constant.numeric.hlsl
+
+    # Float
+    - match: (([.][0-9]+)|((\b[0-9]+)[.][0-9]*))([eE][-+][0-9]+)?[fFhHlL]?\b
+      scope: constant.numeric.hlsl
+
+    # Decimal
+    - match: \b((0)|([1-9][0-9]*[lLuU]?))\b
+      scope: constant.numeric.hlsl
 
 
   operators:
