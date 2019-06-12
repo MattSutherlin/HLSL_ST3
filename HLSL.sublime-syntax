@@ -286,19 +286,19 @@ contexts:
 
   numeric_constants:
     # Hexadecimal
-    - match: (\b0[xX][0-9a-fA-F]+[lLuU]?)\b
+    - match: \b0[xX][0-9a-fA-F]+[lLuU]?\b
       scope: constant.numeric.hlsl
 
     # Octal
-    - match: (\b0[0-7]+[lLuU]?)\b
+    - match: \b0[0-7]+[lLuU]?\b
       scope: constant.numeric.hlsl
 
     # Float
-    - match: ((([.][0-9]+)|((\b[0-9]+)[.][0-9]*))([eE][-+][0-9]+)?[fFhHlL]?)\b
+    - match: (([.][0-9]+)|((\b[0-9]+)[.][0-9]*))([eE][-+][0-9]+)?[fFhHlL]?\b
       scope: constant.numeric.hlsl
 
     # Decimal
-    - match: (\b(0)|([1-9][0-9]*[lLuU]?))\b
+    - match: \b((0)|([1-9][0-9]*[lLuU]?))\b
       scope: constant.numeric.hlsl
 
 
