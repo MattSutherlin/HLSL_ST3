@@ -100,7 +100,10 @@ contexts:
 
 
   buffers:
-    - match: \b(AppendStructuredBuffer|Buffer|ByteAddressBuffer|cbuffer|ConsumeStructuredBuffer|RWBuffer|RWByteAddressBuffer|RWStructuredBuffer|StructuredBuffer|tbuffer)\b
+    - match: \b(cbuffer|tbuffer)\b
+      scope: storage.type.buffer.hlsl
+
+    - match: \b(AppendStructuredBuffer|Buffer|ByteAddressBuffer|ConstantBuffer|ConsumeStructuredBuffer|RWBuffer|RWByteAddressBuffer|RWStructuredBuffer|StructuredBuffer)\b
       scope: storage.type.buffer.hlsl
 
 
