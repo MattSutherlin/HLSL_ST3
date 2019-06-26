@@ -87,10 +87,42 @@ contexts:
     - match: \[(allow_uav_condition|branch|call|earlydepthstencil|fastopt|flatten|forcecase|loop|unroll)\]
       scope: keyword.control.attribute.hlsl
 
-    - match: (\[(?:unroll|instance|maxtessfactor|outputcontrolpoints))\(([1-9]\d*)\)(\])
+    - match: (\[(?:unroll|instance|maxtessfactor|outputcontrolpoints))\([ \t]*([1-9]\d*)[ \t]*\)(\])
       captures:
         1: keyword.control.attribute.hlsl
         2: constant.numeric.hlsl
+        3: keyword.control.attribute.hlsl
+
+    - match: (\[numthreads)\([ \t]*([1-9]\d*)[ \t]*,[ \t]*([1-9]\d*)[ \t]*,[ \t]*([1-9]\d*)[ \t]*\)(\])
+      captures:
+        1: keyword.control.attribute.hlsl
+        2: constant.numeric.hlsl
+        3: constant.numeric.hlsl
+        4: constant.numeric.hlsl
+        5: keyword.control.attribute.hlsl
+
+    - match: (\[domain)\([ \t]*("(?:tri|quad|isoline)")[ \t]*\)(\])
+      captures:
+        1: keyword.control.attribute.hlsl
+        2: string.quoted.double.hlsl
+        3: keyword.control.attribute.hlsl
+
+    - match: (\[outputtopology)\([ \t]*("(?:point|line|triangle_cw|triangle_ccw)")[ \t]*\)(\])
+      captures:
+        1: keyword.control.attribute.hlsl
+        2: string.quoted.double.hlsl
+        3: keyword.control.attribute.hlsl
+
+    - match: (\[partitioning)\([ \t]*("(?:integer|fractional_even|fractional_odd|pow2)")[ \t]*\)(\])
+      captures:
+        1: keyword.control.attribute.hlsl
+        2: string.quoted.double.hlsl
+        3: keyword.control.attribute.hlsl
+
+    - match: (\[patchconstantfunc)\([ \t]*("{{valid_variable}}")[ \t]*\)(\])
+      captures:
+        1: keyword.control.attribute.hlsl
+        2: string.quoted.double.hlsl
         3: keyword.control.attribute.hlsl
 
 
