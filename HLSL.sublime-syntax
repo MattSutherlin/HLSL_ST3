@@ -35,6 +35,7 @@ contexts:
     - include: string
     - include: comments
     - include: invalid
+    - include: attributes
     - include: modifiers
     - include: register
     - include: buffers
@@ -82,6 +83,17 @@ contexts:
       push: [typedef_after_typename, typename]
 
 
+  attributes:
+    - match: \[(allow_uav_condition|branch|call|earlydepthstencil|fastopt|flatten|forcecase|loop|unroll)\]
+      scope: keyword.control.hint.hlsl
+
+    - match: (\[(?:unroll|instance|maxtessfactor|outputcontrolpoints))\((\d+)\)(\])
+      captures:
+        1: keyword.control.hint.hlsl
+        2: constant.numeric.hlsl
+        3: keyword.control.hint.hlsl
+
+
   basic_built_in_types:
     - match: '{{scalar_types}}'
       scope: storage.type.scalar.hlsl
@@ -124,15 +136,6 @@ contexts:
   control_keywords:
     - match: \b(break|case|continue|discard|do|else|for|if|return|switch|while)\b
       scope: keyword.control.hlsl
-
-    - match: \[(allow_uav_condition|branch|call|earlydepthstencil|fastopt|flatten|forcecase|loop|unroll)\]
-      scope: keyword.control.hint.hlsl
-
-    - match: (\[(?:unroll|instance|maxtessfactor|outputcontrolpoints))\((\d+)\)(\])
-      captures:
-        1: keyword.control.hint.hlsl
-        2: constant.numeric.hlsl
-        3: keyword.control.hint.hlsl
 
 
   functions:
