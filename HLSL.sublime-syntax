@@ -128,6 +128,12 @@ contexts:
     - match: \[(allow_uav_condition|branch|call|earlydepthstencil|fastopt|flatten|forcecase|loop|unroll)\]
       scope: keyword.control.hint.hlsl
 
+    - match: (\[(?:unroll|instance|maxtessfactor|outputcontrolpoints))\((\d+)\)(\])
+      captures:
+        1: keyword.control.hint.hlsl
+        2: constant.numeric.hlsl
+        3: keyword.control.hint.hlsl
+
 
   functions:
     - match: (?:({{scalar_types}})|({{vector_types}})|({{matrix_types}})|({{texture_types}})|(\b{{valid_variable}})\b)(?:\s+)(\b{{valid_variable}})(?:\s*)(?:\()
