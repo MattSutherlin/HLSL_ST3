@@ -85,13 +85,13 @@ contexts:
 
   attributes:
     - match: \[(allow_uav_condition|branch|call|earlydepthstencil|fastopt|flatten|forcecase|loop|unroll)\]
-      scope: keyword.control.hint.hlsl
+      scope: keyword.control.attribute.hlsl
 
     - match: (\[(?:unroll|instance|maxtessfactor|outputcontrolpoints))\(([1-9]\d*)\)(\])
       captures:
-        1: keyword.control.hint.hlsl
+        1: keyword.control.attribute.hlsl
         2: constant.numeric.hlsl
-        3: keyword.control.hint.hlsl
+        3: keyword.control.attribute.hlsl
 
 
   basic_built_in_types:
