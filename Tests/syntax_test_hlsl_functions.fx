@@ -14,6 +14,7 @@
   {
      return result;
   }
+//^ meta.function.hlsl
 
   float2 FunctionName(float param1, int2 param2, structName param3)
 //       ^^^^^^^^^^^^ entity.name.function.hlsl
@@ -22,6 +23,7 @@
   {
      return result;
   }
+//^ meta.function.hlsl
 
   float2x2 FunctionName(float param1, int2 param2, structName param3)
 //         ^^^^^^^^^^^^ entity.name.function.hlsl
@@ -30,6 +32,7 @@
   {
      return result;
   }
+//^ meta.function.hlsl
 
   varname FunctionName(float param1, int2 param2, structName param3)
 //        ^^^^^^^^^^^^ entity.name.function.hlsl
@@ -38,6 +41,7 @@
   {
      return result;
   }
+//^ meta.function.hlsl
 
   varname FunctionName(float param1, int2 param2, inout structName param3, uniform bool IsTrue = false)
 //        ^^^^^^^^^^^^ entity.name.function.hlsl
@@ -65,4 +69,5 @@
 //  ^^^^^^^ -constant.numeric.hlsl
 //             ^ -constant.numeric.hlsl
   }
+//^ meta.function.hlsl
 }

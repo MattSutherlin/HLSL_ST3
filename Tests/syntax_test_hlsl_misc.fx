@@ -22,23 +22,20 @@
 //         ^ punctuation.definition.string.begin.hlsl
 //          ^^^^^^^^ string.quoted.other.lt-gt.include.hlsl
 //                  ^ punctuation.definition.string.end.hlsl
-}
 
-cbuffer BufferName : register(b0)
-//^ storage.type.buffer.hlsl
-//                   ^ keyword.register.hlsl
-{
-  matrix MatrixVar;
-//^ storage.type.matrix.hlsl
-  float4 Float4Var;
+  cbuffer BufferName : register(b0)
+//^^^^^^^ storage.type.buffer.hlsl
+//       ^^^^^^^^^^^^^^^^^^^^^^^^^^ -storage.type.buffer.hlsl
+//                     ^^^^^^^^ keyword.register.hlsl
+//^^^^^^^^^^^^^^^^^^^^^ -keyword.register.hlsl
+//                             ^^^^ - keyword.register.hlsl
+  {
+    matrix MatrixVar;
+//  ^^^^^^ storage.type.matrix.hlsl
+    float4 Float4Var;
+//  ^^^^^^ storage.type.vector.hlsl
+  }
 }
-
-struct PS_INPUT
-{
-  float4 Var                : SV_POSITION;
-  noperspective float2 Var2 : TEXCOORD0;
-  centroid float4 ScreenTex : TEXCOORD1;
-};
 
 typedef struct
 //      ^ storage.type.struct.hlsl
