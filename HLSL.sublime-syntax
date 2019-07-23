@@ -19,6 +19,7 @@ scope: source.hlsl
 
 variables:
   valid_variable: '[A-Za-z_][A-Za-z_0-9]*'
+  valid_numeric_attribute_param: (?:([1-9]\d*)|(?:{{valid_variable}}))
   reusable_value_types: (?:bool|double|float|half|int|min10float|min16float|min12int|min16int|min16uint|uint)
   scalar_types: \b(?:{{reusable_value_types}}|dword|void)\b
   vector_types: \b(?:{{reusable_value_types}}(?:[1-4]))\b
@@ -35,6 +36,7 @@ contexts:
     - include: string
     - include: comments
     - include: invalid
+    - include: attributes
     - include: modifiers
     - include: register
     - include: buffers
@@ -82,6 +84,49 @@ contexts:
       push: [typedef_after_typename, typename]
 
 
+  attributes:
+    - match: \[(allow_uav_condition|branch|call|earlydepthstencil|fastopt|flatten|forcecase|loop|unroll)\]
+      scope: keyword.control.attribute.hlsl
+
+    - match: (\[(?:unroll|instance|maxtessfactor|outputcontrolpoints))\([ \t]*{{valid_numeric_attribute_param}}[ \t]*\)(\])
+      captures:
+        1: keyword.control.attribute.hlsl
+        2: constant.numeric.hlsl
+        3: keyword.control.attribute.hlsl
+
+    - match: (\[numthreads)\([ \t]*{{valid_numeric_attribute_param}}[ \t]*,[ \t]*{{valid_numeric_attribute_param}}[ \t]*,[ \t]*{{valid_numeric_attribute_param}}[ \t]*\)(\])
+      captures:
+        1: keyword.control.attribute.hlsl
+        2: constant.numeric.hlsl
+        3: constant.numeric.hlsl
+        4: constant.numeric.hlsl
+        5: keyword.control.attribute.hlsl
+
+    - match: (\[domain)\([ \t]*("(?:tri|quad|isoline)")[ \t]*\)(\])
+      captures:
+        1: keyword.control.attribute.hlsl
+        2: string.quoted.double.hlsl
+        3: keyword.control.attribute.hlsl
+
+    - match: (\[outputtopology)\([ \t]*("(?:point|line|triangle_cw|triangle_ccw)")[ \t]*\)(\])
+      captures:
+        1: keyword.control.attribute.hlsl
+        2: string.quoted.double.hlsl
+        3: keyword.control.attribute.hlsl
+
+    - match: (\[partitioning)\([ \t]*("(?:integer|fractional_even|fractional_odd|pow2)")[ \t]*\)(\])
+      captures:
+        1: keyword.control.attribute.hlsl
+        2: string.quoted.double.hlsl
+        3: keyword.control.attribute.hlsl
+
+    - match: (\[patchconstantfunc)\([ \t]*("{{valid_variable}}")[ \t]*\)(\])
+      captures:
+        1: keyword.control.attribute.hlsl
+        2: string.quoted.double.hlsl
+        3: keyword.control.attribute.hlsl
+
+
   basic_built_in_types:
     - match: '{{scalar_types}}'
       scope: storage.type.scalar.hlsl
@@ -100,7 +145,10 @@ contexts:
 
 
   buffers:
-    - match: \b(AppendStructuredBuffer|Buffer|ByteAddressBuffer|cbuffer|ConsumeStructuredBuffer|RWBuffer|RWByteAddressBuffer|RWStructuredBuffer|StructuredBuffer|tbuffer)\b
+    - match: \b(cbuffer|tbuffer)\b
+      scope: storage.type.buffer.hlsl
+
+    - match: \b(AppendStructuredBuffer|Buffer|ByteAddressBuffer|ConstantBuffer|ConsumeStructuredBuffer|RWBuffer|RWByteAddressBuffer|RWStructuredBuffer|StructuredBuffer)\b
       scope: storage.type.buffer.hlsl
 
 
@@ -121,9 +169,6 @@ contexts:
   control_keywords:
     - match: \b(break|case|continue|discard|do|else|for|if|return|switch|while)\b
       scope: keyword.control.hlsl
-
-    - match: \[(allow_uav_condition|branch|call|earlydepthstencil|fastopt|flatten|forcecase|loop|unroll)\]
-      scope: keyword.control.hint.hlsl
 
 
   functions:

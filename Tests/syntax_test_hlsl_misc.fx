@@ -22,23 +22,38 @@
 //         ^ punctuation.definition.string.begin.hlsl
 //          ^^^^^^^^ string.quoted.other.lt-gt.include.hlsl
 //                  ^ punctuation.definition.string.end.hlsl
-}
 
-cbuffer BufferName : register(b0)
-//^ storage.type.buffer.hlsl
-//                   ^ keyword.register.hlsl
-{
-  matrix MatrixVar;
-//^ storage.type.matrix.hlsl
-  float4 Float4Var;
-}
+  cbuffer BufferName : register(b0)
+//^^^^^^^ storage.type.buffer.hlsl
+//       ^^^^^^^^^^^^^^^^^^^^^^^^^^ -storage.type.buffer.hlsl
+//                     ^^^^^^^^ keyword.register.hlsl
+//^^^^^^^^^^^^^^^^^^^^^ -keyword.register.hlsl
+//                             ^^^^ - keyword.register.hlsl
+  {
+    matrix MatrixVar;
+//  ^^^^^^ storage.type.matrix.hlsl
+    float4 Float4Var;
+//  ^^^^^^ storage.type.vector.hlsl
+  }
 
-struct PS_INPUT
-{
-  float4 Var                : SV_POSITION;
-  noperspective float2 Var2 : TEXCOORD0;
-  centroid float4 ScreenTex : TEXCOORD1;
-};
+  float3 var1;
+  float4 var2 = var1.xrgz;
+//                  ^^^^^ - variable.other.dot-access.hlsl
+  float4 var3 = var1.rrrg;
+//                  ^^^^^ variable.other.dot-access.hlsl
+  float4 var4 = var1.xrgg;
+//                  ^^^^^ - variable.other.dot-access.hlsl
+  float4 var5 = var1.xxrg.g.ggz;
+//                  ^^^^^ - variable.other.dot-access.hlsl
+//                       ^^ variable.other.dot-access.hlsl
+//                         ^^^^ - variable.other.dot-access.hlsl
+  float4 var6 = var1.rrxy.y.yyb;
+//                  ^^^^^ - variable.other.dot-access.hlsl
+//                       ^^ variable.other.dot-access.hlsl
+//                         ^^^^ - variable.other.dot-access.hlsl
+  float4 var7 = var1.xxyz.g.bb;
+//                  ^^^^^^^^^^ variable.other.dot-access.hlsl
+}
 
 typedef struct
 //      ^ storage.type.struct.hlsl
