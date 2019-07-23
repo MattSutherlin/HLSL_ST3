@@ -19,6 +19,7 @@ scope: source.hlsl
 
 variables:
   valid_variable: '[A-Za-z_][A-Za-z_0-9]*'
+  valid_numeric_attribute_param: (?:([1-9]\d*)|(?:{{valid_variable}}))
   reusable_value_types: (?:bool|double|float|half|int|min10float|min16float|min12int|min16int|min16uint|uint)
   scalar_types: \b(?:{{reusable_value_types}}|dword|void)\b
   vector_types: \b(?:{{reusable_value_types}}(?:[1-4]))\b
@@ -87,13 +88,13 @@ contexts:
     - match: \[(allow_uav_condition|branch|call|earlydepthstencil|fastopt|flatten|forcecase|loop|unroll)\]
       scope: keyword.control.attribute.hlsl
 
-    - match: (\[(?:unroll|instance|maxtessfactor|outputcontrolpoints))\([ \t]*([1-9]\d*)[ \t]*\)(\])
+    - match: (\[(?:unroll|instance|maxtessfactor|outputcontrolpoints))\([ \t]*{{valid_numeric_attribute_param}}[ \t]*\)(\])
       captures:
         1: keyword.control.attribute.hlsl
         2: constant.numeric.hlsl
         3: keyword.control.attribute.hlsl
 
-    - match: (\[numthreads)\([ \t]*([1-9]\d*)[ \t]*,[ \t]*([1-9]\d*)[ \t]*,[ \t]*([1-9]\d*)[ \t]*\)(\])
+    - match: (\[numthreads)\([ \t]*{{valid_numeric_attribute_param}}[ \t]*,[ \t]*{{valid_numeric_attribute_param}}[ \t]*,[ \t]*{{valid_numeric_attribute_param}}[ \t]*\)(\])
       captures:
         1: keyword.control.attribute.hlsl
         2: constant.numeric.hlsl
