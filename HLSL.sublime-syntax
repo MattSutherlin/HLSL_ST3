@@ -186,10 +186,7 @@ contexts:
       captures:
         1: keyword.control.preprocessor.hlsl
         2: entity.name.function.hlsl
-      push:
-        - include: prototype
-        - match: \)
-          pop: true
+      push: function_macro_body
 
 
   function_body:
@@ -207,6 +204,21 @@ contexts:
           push:
             - match: (?=\})
               pop: true
+
+
+  function_macro_body:
+    - include: prototype
+    - meta_content_scope: meta.function.parameters.hlsl
+    - match: \)
+      set:
+        - meta_scope: meta.function.hlsl
+        - include: prototype
+        - include: function_macro_terminator
+
+
+  function_macro_terminator:
+    - match: (?:[^\\]$\n)
+      pop: true
 
 
   intrinsics:

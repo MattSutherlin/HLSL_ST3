@@ -7,6 +7,19 @@
 //^^^^^^^^ -entity.name.function.hlsl
 //                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ -entity.name.function.hlsl
 
+  #define MACRO_FUNCTION(param1, param2) \
+//        ^^^^^^^^^^^^^^ entity.name.function.hlsl
+//^^^^^^^^ -entity.name.function.hlsl
+//                      ^^^^^^^^^^^^^^^^^^ -entity.name.function.hlsl
+//                                      ^ meta.function.hlsl
+    param1 += param2; \
+//^ meta.function.hlsl
+    param1 *= 5;
+//^ meta.function.hlsl
+
+//^ -meta.function.hlsl
+
+
   float FunctionName(float param1, int2 param2, structName param3)
 //      ^^^^^^^^^^^^ entity.name.function.hlsl
 //^^^^^^ -entity.name.function.hlsl
