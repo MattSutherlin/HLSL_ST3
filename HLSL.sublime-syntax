@@ -103,18 +103,21 @@ contexts:
         5: keyword.control.attribute.hlsl
 
     - match: (\[domain)\([ \t]*("(?:tri|quad|isoline)")[ \t]*\)(\])
+      scope: meta.attribute.domain.hlsl
       captures:
         1: keyword.control.attribute.hlsl
         2: string.quoted.double.hlsl
         3: keyword.control.attribute.hlsl
 
     - match: (\[outputtopology)\([ \t]*("(?:point|line|triangle_cw|triangle_ccw)")[ \t]*\)(\])
+      scope: meta.attribute.outputtopology.hlsl
       captures:
         1: keyword.control.attribute.hlsl
         2: string.quoted.double.hlsl
         3: keyword.control.attribute.hlsl
 
     - match: (\[partitioning)\([ \t]*("(?:integer|fractional_even|fractional_odd|pow2)")[ \t]*\)(\])
+      scope: meta.attribute.partitioning.hlsl
       captures:
         1: keyword.control.attribute.hlsl
         2: string.quoted.double.hlsl
