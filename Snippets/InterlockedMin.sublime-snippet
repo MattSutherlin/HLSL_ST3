@@ -4,5 +4,5 @@
 		<![CDATA[InterlockedMin(${1:/* dest */}, ${2:/* value */}, ${3:/* out original_value */});]]>
 	</content>
 	<tabTrigger>InterlockedMin</tabTrigger>
-	<scope>source.hlsl</scope>
+	<scope>meta.function.hlsl, meta.preprocessor.hlsl</scope>
 </snippet>

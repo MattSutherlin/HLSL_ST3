@@ -4,5 +4,5 @@
 		<![CDATA[DeviceMemoryBarrierWithGroupSync();]]>
 	</content>
 	<tabTrigger>DeviceMemoryBarrierWithGroupSync</tabTrigger>
-	<scope>source.hlsl</scope>
+	<scope>meta.function.hlsl, meta.preprocessor.hlsl</scope>
 </snippet>
