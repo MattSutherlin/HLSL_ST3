@@ -4,5 +4,5 @@
 		<![CDATA[InterlockedCompareExchange(${1:/* dest */}, ${2:/* compare_value */}, ${3:/* value */}, ${4:/* out original_value */});]]>
 	</content>
 	<tabTrigger>InterlockedCompareExchange</tabTrigger>
-	<scope>source.hlsl</scope>
+	<scope>meta.function.hlsl, meta.preprocessor.hlsl</scope>
 </snippet>
