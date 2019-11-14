@@ -15,8 +15,7 @@
 //  ^ meta.namespace.hlsl
   }
 //^ meta.namespace.hlsl
-
-//<- -meta.namespace.hlsl
+// ^ -meta.namespace.hlsl
 
   namespace TestSpace
 //^^^^^^^^^ keyword.control.namespace.hlsl
@@ -50,6 +49,8 @@
 //    ^^^^^^^ -constant.numeric.hlsl
 //               ^ -constant.numeric.hlsl
     }
+//  ^ meta.function.hlsl
+//   ^ -meta.function.hlsl
 
     struct varname
 //  ^^^^^^ storage.type.struct.hlsl
@@ -92,6 +93,8 @@
 //      ^^^^^^^ -constant.numeric.hlsl
 //                 ^ -constant.numeric.hlsl
       }
+//    ^ meta.function.hlsl
+//     ^ -meta.function.hlsl
 
       #if defined(TOKEN)
 //    ^^^ keyword.control.preprocessor.hlsl
@@ -136,9 +139,13 @@
 //        ^^^^^^^ -constant.numeric.hlsl
 //                   ^ -constant.numeric.hlsl
         }
+//      ^ meta.function.hlsl
+//       ^ -meta.function.hlsl
       #endif
 //    ^^^^^^ keyword.control.preprocessor.hlsl
     };
+//  ^^ meta.struct.hlsl
+//    ^ - meta.struct.hlsl
 
     typedef struct
 //  ^^^^^^^ keyword.control.hlsl
@@ -181,10 +188,15 @@
 //      ^^^^^^^ -constant.numeric.hlsl
 //                 ^ -constant.numeric.hlsl
       }
+//    ^ meta.function.hlsl
+//     ^ -meta.function.hlsl
     } s_struct_name;
 //    ^^^^^^^^^^^^^ entity.name.type.struct.hlsl
 //  ^^ -entity.name.type.struct.hlsl
 //                 ^ -entity.name.type.struct.hlsl
+//  ^ meta.struct.hlsl
+//   ^ - meta.struct.hlsl
   }
 //^ meta.namespace.hlsl
+// ^ -meta.namespace.hlsl
 }

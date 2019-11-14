@@ -327,6 +327,8 @@
 //    ^^^^^^^ -constant.numeric.hlsl
 //               ^ -constant.numeric.hlsl
     }
+//  ^ meta.function.hlsl
+//   ^ -meta.function.hlsl
 
     #if defined(TOKEN)
 //  ^^^ keyword.control.preprocessor.hlsl
@@ -371,9 +373,13 @@
 //      ^^^^^^^ -constant.numeric.hlsl
 //                 ^ -constant.numeric.hlsl
       }
+//    ^ meta.function.hlsl
+//     ^ - meta.function.hlsl
     #endif
 //  ^^^^^^ keyword.control.preprocessor.hlsl
   };
+//^^ meta.struct.hlsl
+//  ^ -meta.struct.hlsl
 
   typedef struct
 //^^^^^^^ keyword.control.hlsl
@@ -410,7 +416,11 @@
 //    ^^^^^^^ -constant.numeric.hlsl
 //               ^ -constant.numeric.hlsl
     }
+//  ^ meta.function.hlsl
+//   ^ -meta.function.hlsl
   } s_struct_name;
+//^ meta.struct.hlsl
+// ^ -meta.struct.hlsl
 //  ^^^^^^^^^^^^^ entity.name.type.struct.hlsl
 //^^ -entity.name.type.struct.hlsl
 //               ^ -entity.name.type.struct.hlsl
@@ -425,6 +435,8 @@
 //  ^^^^^^ storage.type.vector.hlsl
 //        ^^^^^^^^^ -storage.type.vector.hlsl
   } s_struct_name,
+//^ meta.struct.hlsl
+// ^ -meta.struct.hlsl
 //  ^^^^^^^^^^^^^ entity.name.type.struct.hlsl
 //^^ -entity.name.type.struct.hlsl
 //               ^ -entity.name.type.struct.hlsl

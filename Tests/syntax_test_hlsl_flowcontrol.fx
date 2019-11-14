@@ -2,10 +2,17 @@
 
 
 {
+  [unroll(3)]
+//^^^^^^^ keyword.control.attribute.hlsl
+//          ^ keyword.control.attribute.hlsl
+//       ^^^ - keyword.control.attribute.hlsl
+//        ^ constant.numeric.hlsl
   for (int i = 0; i < terminator; ++i)
 //^^^ keyword.control.hlsl
 //   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ -keyword.control.hlsl
   {
+    [branch]
+//  ^^^^^^^^ keyword.control.attribute.hlsl
     if (otherVar)
 //  ^^ keyword.control.hlsl
 //    ^^^^^^^^^^^ -keyword.control.hlsl
@@ -23,6 +30,10 @@
     }
   }
 
+  [unroll(staticVar)]
+//^^^^^^^ keyword.control.attribute.hlsl
+//                  ^ keyword.control.attribute.hlsl
+//       ^^^^^^^^^^^ - keyword.control.attribute.hlsl
   while (condition.active())
 //^^^^^ keyword.control.hlsl
 //     ^^^^^^^^^^^^^^^^^^^^^ -keyword.control.hlsl
