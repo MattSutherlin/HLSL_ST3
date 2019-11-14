@@ -12,17 +12,17 @@ While the syntax is the core of the plugin, the scripts are where I'm hoping to 
 #### Open Headers
 You can right click an include statement to open the referenced file.  By default, it will attempt to open relative to the same directory as the incuding file, but user settings allow additional include paths to be provided.
 
-![OpenHeader](https://github.com/MattSutherlin/HLSLToolsImages/blob/master/OpenHeader.png)
+<img src="https://github.com/MattSutherlin/HLSLToolsImages/blob/master/OpenHeader.png"/>
 
 #### Get Instrinc Information On Hover
 Mousing over a language intrinsic will give you a popup with the MSDN description and a link to the MSDN page.  Now you don't have to forever keep a tab open for the main intrinsics page, and let's be real, anyone reading this probably does.
 
-![IntrinsicHover](https://github.com/MattSutherlin/HLSLToolsImages/blob/master/IntrinsicHover.png)
+<img src="https://github.com/MattSutherlin/HLSLToolsImages/blob/master/IntrinsicHover.png"/>
 
 #### Swap String Literal Params On Attributes
 Can't ever remember what strings are valid for the paritioning attribute of a hull shader?  Me either, and now you shouldn't have to.  Right click any stage function attribute with a string literal param and get a list of the valid options to insert.
 
-![SwapAttributeParams](https://github.com/MattSutherlin/HLSLToolsImages/blob/master/SwapAttributeParams.png)
+<img src="https://github.com/MattSutherlin/HLSLToolsImages/blob/master/SwapAttributeParams.png"/>
 
 ## Lastly
 Everything works best when your shader source is in an active sublime-project file.  Otherwise, some features may only work across open files instead of all of your files.
