@@ -9,6 +9,7 @@ Additionally:
 
 * Right clicking include directives to open the referenced file is now supported.  By default, it will attempt to open relative to the same directory as the incuding file, but user settings allow additional include paths to be provided.
 * Hovering intrinsics will open a popup with a link to MSDN documentation.
+* Right clicking on stage function attribues that have string literal params will give you a list of the valid string to insert.
 
 Everything works best when your shader source is in an active sublime-project file.  Otherwise, some features may only work across open files instead of all of your files.
 
