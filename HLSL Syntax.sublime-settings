@@ -1,5 +1,7 @@
 // THESE ARE THE SETTINGS DEFAULT - ONLY EDIT THE USER SETTINGS
 {
+	"OpenHeaderEnabled": true,
+	
 	// This is a list of root paths that can be accessed in the following block of include paths for convenience
 	"OpenHeaderBasePaths":
 	[
@@ -12,6 +14,8 @@
 	"OpenHeaderIncludePaths":
 	[
 	],
+
+	"IntrinsicHoverEnabled": true,
 
 	// Valid settings are: "same_window", "new_window", or "new_tab"
 	// "new_tab" is used if an invalid setting is made

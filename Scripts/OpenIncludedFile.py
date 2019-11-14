@@ -51,7 +51,13 @@ class OpenIncludedHlslFileCommand(sublime_plugin.TextCommand):
 	def want_event(self):
 		return True
 
+	def is_enabled(self):
+		return sublime.load_settings("HLSL Syntax.sublime-settings").get("OpenHeaderEnabled", True)
+
 	def is_visible(self, event):
+		if self.is_enabled() == False:
+			return False
+			
 		view = self.view
 
 		mousePos = view.window_to_text((event["x"], event["y"]))
