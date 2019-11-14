@@ -1,2 +1,4 @@
 from .IntrinsicHover import IntrinsicHover
 from .OpenIncludedFile import OpenIncludedHlslFileCommand
+from .SwapAttributeParams import SwapAttributeParamsCommand
+from .SwapAttributeParams import SwapAttributeParamsListener
