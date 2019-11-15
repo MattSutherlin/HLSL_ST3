@@ -454,6 +454,7 @@ contexts:
         - meta_scope: meta.preprocessor.hlsl
         - include: prototype
         - include: preprocessor_multiline_ending
+        - include: preprocessor_line_ending
 
     - match: (#if[n]*def)(?:\s+)({{valid_variable}})
       captures:
