@@ -10,11 +10,11 @@ A large part of that is the syntax file, where the goal is to hook as much as po
 While the syntax is the core of the plugin, the scripts are where I'm hoping to take it from a simple text editing experience and into being a real IDE experience.
 
 #### Open Headers
-You can right click an include statement to open the referenced file.  By default, it will attempt to open relative to the same directory as the incuding file, but user settings allow additional include paths to be provided.
+You can right click an include statement to open the referenced file.  By default, it will attempt to open relative to the same directory as the including file, but user settings allow additional include paths to be provided.
 
 <img src="https://raw.githubusercontent.com/MattSutherlin/HLSLToolsImages/master/OpenHeader.png"/>
 
-#### Get Instrinc Information On Hover
+#### Get Intrinsic Information On Hover
 Mousing over a language intrinsic will give you a popup with the MSDN description and a link to the MSDN page.  Now you don't have to forever keep a tab open for the main intrinsics page, and let's be real, anyone reading this probably does.
 
 <img src="https://raw.githubusercontent.com/MattSutherlin/HLSLToolsImages/master/IntrinsicHover.png"/>
