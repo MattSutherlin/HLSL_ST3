@@ -210,6 +210,8 @@ contexts:
 
 
   function_macro_body:
+    - match: \)[ \t]*\n
+      pop: true
     - include: prototype
     - meta_content_scope: meta.function.parameters.hlsl
     - match: \)
@@ -454,7 +456,6 @@ contexts:
         - meta_scope: meta.preprocessor.hlsl
         - include: prototype
         - include: preprocessor_multiline_ending
-        - include: preprocessor_line_ending
 
     - match: (#if[n]*def)(?:\s+)({{valid_variable}})
       captures:
