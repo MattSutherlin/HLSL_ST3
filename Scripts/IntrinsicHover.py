@@ -436,7 +436,7 @@ def OpenMSDNLink(text):
 	webbrowser.open(text, openStyle)
 
 
-class IntrinsicHover(sublime_plugin.EventListener):
+class IntrinsicHoverListener(sublime_plugin.EventListener):
 	def on_hover(sef, view, point, hover_zone):
 		if sublime.load_settings("HLSL Syntax.sublime-settings").get("IntrinsicHoverEnabled", True) == False:
 			return
