@@ -15,6 +15,16 @@
 
 //^ -meta.preprocessor.hlsl
 
+  #define TOKEN 8
+//^^^^^^^ keyword.control.preprocessor.hlsl
+//       ^^^^^^ -keyword.control.preprocessor.hlsl
+//        ^^^^^ constant.other.hlsl
+//^^^^^^^^ -constant.other.hlsl
+//              ^ constant.numeric.hlsl
+//^^^^^^^^^^^^^^^ meta.preprocessor.hlsl
+
+//^ -meta.preprocessor.hlsl
+
   #define TOKEN
 //^^^^^^^ keyword.control.preprocessor.hlsl
 //       ^^^^^^ -keyword.control.preprocessor.hlsl
