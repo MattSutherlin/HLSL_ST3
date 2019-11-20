@@ -8,6 +8,16 @@
   // "Comment!"
 //^^^^^^^^^^^^^ comment.line.double-slash.hlsl
 
+  /* Comment! */
+//^^^^^^^^^^^^^^ comment.block.hlsl
+
+  /* Comment!
+//^^^^^^^^^^^ comment.block.hlsl
+  More Comment!
+//^^^^^^^^^^^^^ comment.block.hlsl
+  Another line of comment! */
+//^^^^^^^^^^^^^^^^^^^^^^^^^^^ comment.block.hlsl
+
   #include "file.fxh"
 //^^^^^^^^^^^^^^^^^^^ meta.preprocessor.include.hlsl
 //^^^^^^^^ keyword.control.preprocessor.include.hlsl
@@ -55,6 +65,9 @@
 //                  ^^^^^^^^^^ variable.other.dot-access.hlsl
 }
 
+
+// Everything below here should be removed at some point
+// I believe it is (or should be) redundant with tests in other files
 typedef struct
 //      ^ storage.type.struct.hlsl
 {

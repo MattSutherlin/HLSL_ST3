@@ -40,6 +40,9 @@
 //        ^^^^^ constant.other.hlsl
 //^^^^^^^^ -constant.other.hlsl
     float3(0.0f, 1.0f, 0.0f)
+//  ^^^^^^ storage.type.vector.hlsl
+//^^ -storage.type.vector.hlsl
+//        ^^^^^^^^^^^^^^^^^^ -storage.type.vector.hlsl
 //^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.preprocessor.hlsl
 
 //^ -meta.preprocessor.hlsl
