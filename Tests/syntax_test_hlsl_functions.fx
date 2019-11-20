@@ -6,6 +6,9 @@
 //        ^^^^^^^^^^^^^^ entity.name.function.hlsl
 //^^^^^^^^ -entity.name.function.hlsl
 //                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ -entity.name.function.hlsl
+//                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.function.hlsl
+
+//^ -meta.function.hlsl
 
   #define MACRO_FUNCTION(param1, param2) \
 //        ^^^^^^^^^^^^^^ entity.name.function.hlsl
