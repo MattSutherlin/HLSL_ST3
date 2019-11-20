@@ -446,7 +446,7 @@ contexts:
         - match: \s*\)
           pop: true
 
-    - match: (#define)(?:\s+)({{valid_variable}})
+    - match: (#\s*define)(?:\s+)({{valid_variable}})
       captures:
         1: keyword.control.preprocessor.hlsl
         2: constant.other.hlsl
