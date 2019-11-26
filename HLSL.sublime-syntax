@@ -306,6 +306,12 @@ contexts:
         - match: '\)'
           pop: true
 
+    - match: \(
+      push:
+        - include: prototype
+        - match: \)
+          pop: true
+
 
   modifiers:
     - match: ([.][xyzw]+)\b

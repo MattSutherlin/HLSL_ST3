@@ -6,6 +6,9 @@
 //        ^^^^^^^^^^^^^^ entity.name.function.hlsl
 //^^^^^^^^ -entity.name.function.hlsl
 //                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ -entity.name.function.hlsl
+//^^^^^^^^^^^^^^^^^^^^^^^ -meta.function.parameters.hlsl
+//                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ -meta.function.parameters.hlsl
+//                       ^^^^^^^^^^^^^^^^^^^^^^ meta.function.parameters.hlsl
 //                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.function.hlsl
 
 //^ -meta.function.hlsl
@@ -14,6 +17,9 @@
 //        ^^^^^^^^^^^^^^ entity.name.function.hlsl
 //^^^^^^^^ -entity.name.function.hlsl
 //                      ^^^^^^^^^^^^^^^^^^ -entity.name.function.hlsl
+//^^^^^^^^^^^^^^^^^^^^^^^ -meta.function.parameters.hlsl
+//                                      ^^ -meta.function.parameters.hlsl
+//                       ^^^^^^^^^^^^^^^ meta.function.parameters.hlsl
 //                                      ^ meta.function.hlsl
     param1 += param2; \
 //^ meta.function.hlsl
@@ -27,6 +33,22 @@
 //      ^^^^^^^^^^^^ entity.name.function.hlsl
 //^^^^^^ -entity.name.function.hlsl
 //                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ -entity.name.function.hlsl
+//^^^^^^^^^^^^^^^^^^^ -meta.function.parameters.hlsl
+//                                                                ^ -meta.function.parameters.hlsl
+//                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.function.parameters.hlsl
+  {
+     return result;
+  }
+//^ meta.function.hlsl
+// ^ -meta.function.hlsl
+
+  float FunctionName(float param1, int param2 = (CONST1 | CONST2))
+//      ^^^^^^^^^^^^ entity.name.function.hlsl
+//^^^^^^ -entity.name.function.hlsl
+//                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ -entity.name.function.hlsl
+//^^^^^^^^^^^^^^^^^^^ -meta.function.parameters.hlsl
+//                                                                ^ -meta.function.parameters.hlsl
+//                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.function.parameters.hlsl
   {
      return result;
   }
@@ -37,6 +59,9 @@
 //       ^^^^^^^^^^^^ entity.name.function.hlsl
 //^^^^^^^ -entity.name.function.hlsl
 //                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ -entity.name.function.hlsl
+//^^^^^^^^^^^^^^^^^^^^ -meta.function.parameters.hlsl
+//                                                                 ^ -meta.function.parameters.hlsl
+//                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.function.parameters.hlsl
   {
      return result;
   }
@@ -47,6 +72,9 @@
 //         ^^^^^^^^^^^^ entity.name.function.hlsl
 //^^^^^^^^^ -entity.name.function.hlsl
 //                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ -entity.name.function.hlsl
+//^^^^^^^^^^^^^^^^^^^^^^ -meta.function.parameters.hlsl
+//                                                                   ^ -meta.function.parameters.hlsl
+//                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.function.parameters.hlsl
   {
      return result;
   }
@@ -57,6 +85,9 @@
 //        ^^^^^^^^^^^^ entity.name.function.hlsl
 //^^^^^^^^ -entity.name.function.hlsl
 //                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ -entity.name.function.hlsl
+//^^^^^^^^^^^^^^^^^^^^^ -meta.function.parameters.hlsl
+//                                                                  ^ -meta.function.parameters.hlsl
+//                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.function.parameters.hlsl
   {
      return result;
   }
@@ -73,6 +104,9 @@
 //                                                                         ^^^^^^^ storage.modifier.hlsl
 //                                                                                 ^^^^ storage.type.scalar.hlsl
 //                                                                                               ^^^^^ constant.language.hlsl
+//^^^^^^^^^^^^^^^^^^^^^ -meta.function.parameters.hlsl
+//                                                                                                     ^ -meta.function.parameters.hlsl
+//                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.function.parameters.hlsl
   {
     float result = FunctionName(param1, param2, param3);
 //                 ^^^^^^^^^^^^ variable.function.hlsl
