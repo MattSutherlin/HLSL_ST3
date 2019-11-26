@@ -88,13 +88,13 @@ contexts:
     - match: \[(allow_uav_condition|branch|call|earlydepthstencil|fastopt|flatten|forcecase|loop|unroll)\]
       scope: keyword.control.attribute.hlsl
 
-    - match: (\[(?:unroll|instance|maxtessfactor|outputcontrolpoints))\([ \t]*{{valid_numeric_attribute_param}}[ \t]*\)(\])
+    - match: (\[(?:unroll|instance|maxtessfactor|outputcontrolpoints))\(\s*{{valid_numeric_attribute_param}}\s*\)(\])
       captures:
         1: keyword.control.attribute.hlsl
         2: constant.numeric.hlsl
         3: keyword.control.attribute.hlsl
 
-    - match: (\[numthreads)\([ \t]*{{valid_numeric_attribute_param}}[ \t]*,[ \t]*{{valid_numeric_attribute_param}}[ \t]*,[ \t]*{{valid_numeric_attribute_param}}[ \t]*\)(\])
+    - match: (\[numthreads)\(\s*{{valid_numeric_attribute_param}}\s*,\s*{{valid_numeric_attribute_param}}\s*,\s*{{valid_numeric_attribute_param}}\s*\)(\])
       captures:
         1: keyword.control.attribute.hlsl
         2: constant.numeric.hlsl
@@ -102,28 +102,28 @@ contexts:
         4: constant.numeric.hlsl
         5: keyword.control.attribute.hlsl
 
-    - match: (\[domain)\([ \t]*("(?:tri|quad|isoline)")[ \t]*\)(\])
+    - match: (\[domain)\(\s*("(?:tri|quad|isoline)")\s*\)(\])
       scope: meta.attribute.domain.hlsl
       captures:
         1: keyword.control.attribute.hlsl
         2: string.quoted.double.hlsl
         3: keyword.control.attribute.hlsl
 
-    - match: (\[outputtopology)\([ \t]*("(?:point|line|triangle_cw|triangle_ccw)")[ \t]*\)(\])
+    - match: (\[outputtopology)\(\s*("(?:point|line|triangle_cw|triangle_ccw)")\s*\)(\])
       scope: meta.attribute.outputtopology.hlsl
       captures:
         1: keyword.control.attribute.hlsl
         2: string.quoted.double.hlsl
         3: keyword.control.attribute.hlsl
 
-    - match: (\[partitioning)\([ \t]*("(?:integer|fractional_even|fractional_odd|pow2)")[ \t]*\)(\])
+    - match: (\[partitioning)\(\s*("(?:integer|fractional_even|fractional_odd|pow2)")\s*\)(\])
       scope: meta.attribute.partitioning.hlsl
       captures:
         1: keyword.control.attribute.hlsl
         2: string.quoted.double.hlsl
         3: keyword.control.attribute.hlsl
 
-    - match: (\[patchconstantfunc)\([ \t]*("{{valid_variable}}")[ \t]*\)(\])
+    - match: (\[patchconstantfunc)\(\s*("{{valid_variable}}")\s*\)(\])
       captures:
         1: keyword.control.attribute.hlsl
         2: string.quoted.double.hlsl
