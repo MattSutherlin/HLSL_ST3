@@ -174,6 +174,14 @@ contexts:
       scope: keyword.control.hlsl
 
 
+  empty_scope:
+    - match: \{
+      push:
+        - include: prototype
+        - match: \}
+          pop: true
+
+
   functions:
     - match: (?:({{scalar_types}})|({{vector_types}})|({{matrix_types}})|({{texture_types}})|(\b{{valid_variable}})\b)(?:\s+)(\b{{valid_variable}})(?:\s*)(?:\()
       captures:
@@ -218,6 +226,7 @@ contexts:
         - include: prototype
         - include: preprocessor_line_continuation
         - include: preprocessor_line_ending
+        - include: empty_scope
 
 
   intrinsics:

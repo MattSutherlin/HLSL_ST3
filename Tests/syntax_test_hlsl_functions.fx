@@ -28,6 +28,25 @@
 
 //^ -meta.function.hlsl
 
+  #define MACRO_FUNCTION(FuncName) \
+//        ^^^^^^^^^^^^^^ entity.name.function.hlsl
+//^^^^^^^^ -entity.name.function.hlsl
+//                      ^^^^^^^^^^^^^^^^^^ -entity.name.function.hlsl
+//^^^^^^^^^^^^^^^^^^^^^^^ -meta.function.parameters.hlsl
+//                                ^^ -meta.function.parameters.hlsl
+//                       ^^^^^^^^^ meta.function.parameters.hlsl
+//                                  ^ meta.function.hlsl
+    float FuncName_##FuncName(float param1, float param2) \
+    {
+      param1 += param2; \
+//^ meta.function.hlsl
+      param1 *= 5; \
+//^ meta.function.hlsl
+    }
+//^ meta.function.hlsl
+
+//^ -meta.function.hlsl
+
 
   float FunctionName(float param1, int2 param2, structName param3)
 //      ^^^^^^^^^^^^ entity.name.function.hlsl
@@ -51,6 +70,21 @@
 //                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.function.parameters.hlsl
   {
      return result;
+  }
+//^ meta.function.hlsl
+// ^ -meta.function.hlsl
+
+  float FunctionName(float param1, int param2 = (CONST1 | CONST2))
+//      ^^^^^^^^^^^^ entity.name.function.hlsl
+//^^^^^^ -entity.name.function.hlsl
+//                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ -entity.name.function.hlsl
+//^^^^^^^^^^^^^^^^^^^ -meta.function.parameters.hlsl
+//                                                                ^ -meta.function.parameters.hlsl
+//                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.function.parameters.hlsl
+  {
+    {
+      return result;
+    }
   }
 //^ meta.function.hlsl
 // ^ -meta.function.hlsl
