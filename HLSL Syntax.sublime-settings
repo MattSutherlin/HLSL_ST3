@@ -19,5 +19,7 @@
 
 	// Valid settings are: "same_window", "new_window", or "new_tab"
 	// "new_tab" is used if an invalid setting is made
-	"IntrinsicHoverLinkOpenStyle": "new_tab"
+	"IntrinsicHoverLinkOpenStyle": "new_tab",
+
+	"AttributeParamSwapEnabled": true
 }
