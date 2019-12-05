@@ -1,7 +1,6 @@
 // SYNTAX TEST "HLSL.sublime-syntax"
 
 
-{
   // Comment!
 //^^^^^^^^^^^ comment.line.double-slash.hlsl
 
@@ -63,7 +62,6 @@
 //                         ^^^^ - variable.other.dot-access.hlsl
   float4 var7 = var1.xxyz.g.bb;
 //                  ^^^^^^^^^^ variable.other.dot-access.hlsl
-}
 
 
 // Everything below here should be removed at some point

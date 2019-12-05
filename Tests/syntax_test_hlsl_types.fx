@@ -3,7 +3,6 @@
 
 // Scalar types
 
-{
   bool varname;
 //^^^^ storage.type.scalar.hlsl
 //    ^^^^^^^^^ -storage.type.scalar.hlsl
@@ -186,12 +185,10 @@
 
   void
 //^^^^ storage.type.scalar.hlsl
-}
 
 
 // Vector types
 
-{
   dword2 varname;
 //^^^^^^^^^^^^^^^ -storage.type.vector.hlsl
 
@@ -251,12 +248,10 @@
 
   void2x2 varname;
 //^^^^^^^^^^^^^^^^ -storage.type.vector.hlsl
-}
 
 
 // Texture types
 
-{
   Texture1D varname : register(t5);
 //^^^^^^^^^ storage.type.texture.hlsl
 //         ^^^^^^^^^^^^^^^^^^^^^^^^ -storage.type.texture.hlsl
@@ -335,12 +330,10 @@
 //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ -storage.type.texture.hlsl
   RWTextureCubeMSArray varname : register(t5);
 //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ -storage.type.texture.hlsl
-}
 
 
 // Structs
 
-{
   struct varname
 //^^^^^^ storage.type.struct.hlsl
 //      ^^^^^^^^ -storage.type.struct.hlsl
@@ -503,4 +496,3 @@
 //  ^^^^^^^^^^^^^^^ entity.name.type.struct.hlsl
 //^^ -entity.name.type.struct.hlsl
 //                 ^ -entity.name.type.struct.hlsl
-}

@@ -1,7 +1,8 @@
 // SYNTAX TEST "HLSL.sublime-syntax"
 
 
-{
+// Macro functions
+
   #define MACRO_FUNCTION(paramName, paramValue) float paramName = paramValue;
 //        ^^^^^^^^^^^^^^ entity.name.function.hlsl
 //^^^^^^^^ -entity.name.function.hlsl
@@ -47,6 +48,8 @@
 
 //^ -meta.function.hlsl
 
+
+// Loose functions
 
   float FunctionName(float param1, int2 param2, structName param3)
 //      ^^^^^^^^^^^^ entity.name.function.hlsl
@@ -159,4 +162,3 @@
   }
 //^ meta.function.hlsl
 // ^ -meta.function.hlsl
-}

@@ -1,7 +1,6 @@
 // SYNTAX TEST "HLSL.sublime-syntax"
 
 
-{
   namespace TestSpace
 //^^^^^^^^^^^^^^^^^^^ meta.namespace.hlsl
   {
@@ -199,4 +198,3 @@
   }
 //^ meta.namespace.hlsl
 // ^ -meta.namespace.hlsl
-}
