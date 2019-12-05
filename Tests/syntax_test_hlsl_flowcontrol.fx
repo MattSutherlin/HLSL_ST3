@@ -1,7 +1,6 @@
 // SYNTAX TEST "HLSL.sublime-syntax"
 
 
-{
   [unroll(3)]
 //^^^^^^^ keyword.control.attribute.hlsl
 //          ^ keyword.control.attribute.hlsl
@@ -97,4 +96,3 @@
 //          ^ -keyword.control.hlsl
     }
   }
-}

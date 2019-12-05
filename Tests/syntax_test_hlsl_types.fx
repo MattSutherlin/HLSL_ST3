@@ -3,7 +3,6 @@
 
 // Scalar types
 
-{
   bool varname;
 //^^^^ storage.type.scalar.hlsl
 //    ^^^^^^^^^ -storage.type.scalar.hlsl
@@ -15,6 +14,9 @@
 //    ^^^^^^^^^^^ -storage.type.scalar.hlsl
 //               ^^^^ storage.type.scalar.hlsl
 //                   ^^^^ -storage.type.scalar.hlsl
+//^^^^^^^^^^^^^^^^^^^^ -constant.numeric.hlsl
+//                    ^ constant.numeric.hlsl
+//                     ^^ -constant.numeric.hlsl
 
   double varname;
 //^^^^^^ storage.type.scalar.hlsl
@@ -27,6 +29,9 @@
 //      ^^^^^^^^^^^ -storage.type.scalar.hlsl
 //                 ^^^^^^ storage.type.scalar.hlsl
 //                       ^^^^^^ -storage.type.scalar.hlsl
+//^^^^^^^^^^^^^^^^^^^^^^^^ -constant.numeric.hlsl
+//                        ^^^ constant.numeric.hlsl
+//                           ^^ -constant.numeric.hlsl
 
   dword varname;
 //^^^^^ storage.type.scalar.hlsl
@@ -39,6 +44,9 @@
 //     ^^^^^^^^^^^ -storage.type.scalar.hlsl
 //                ^^^^^ storage.type.scalar.hlsl
 //                     ^^^^^^ -storage.type.scalar.hlsl
+//^^^^^^^^^^^^^^^^^^^^^^ -constant.numeric.hlsl
+//                      ^^^ constant.numeric.hlsl
+//                         ^^ -constant.numeric.hlsl
 
   half varname;
 //^^^^ storage.type.scalar.hlsl
@@ -51,6 +59,9 @@
 //    ^^^^^^^^^^^ -storage.type.scalar.hlsl
 //               ^^^^ storage.type.scalar.hlsl
 //                   ^^^^ -storage.type.scalar.hlsl
+//^^^^^^^^^^^^^^^^^^^^ -constant.numeric.hlsl
+//                    ^ constant.numeric.hlsl
+//                     ^^ -constant.numeric.hlsl
 
   float varname;
 //^^^^^ storage.type.scalar.hlsl
@@ -63,6 +74,9 @@
 //     ^^^^^^^^^^^ -storage.type.scalar.hlsl
 //                ^^^^^ storage.type.scalar.hlsl
 //                     ^^^^^^ -storage.type.scalar.hlsl
+//^^^^^^^^^^^^^^^^^^^^^^ -constant.numeric.hlsl
+//                      ^^^ constant.numeric.hlsl
+//                         ^^ -constant.numeric.hlsl
 
   int varname;
 //^^^ storage.type.scalar.hlsl
@@ -75,6 +89,9 @@
 //   ^^^^^^^^^^^ -storage.type.scalar.hlsl
 //              ^^^ storage.type.scalar.hlsl
 //                 ^^^^^^ -storage.type.scalar.hlsl
+//^^^^^^^^^^^^^^^^^^ -constant.numeric.hlsl
+//                  ^^^ constant.numeric.hlsl
+//                     ^^ -constant.numeric.hlsl
 
   min10float varname;
 //^^^^^^^^^^ storage.type.scalar.hlsl
@@ -87,6 +104,9 @@
 //          ^^^^^^^^^^^ -storage.type.scalar.hlsl
 //                     ^^^^^^^^^^ storage.type.scalar.hlsl
 //                               ^^^^^^ -storage.type.scalar.hlsl
+//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ -constant.numeric.hlsl
+//                                ^^^ constant.numeric.hlsl
+//                                   ^^ -constant.numeric.hlsl
 
   min16float varname;
 //^^^^^^^^^^ storage.type.scalar.hlsl
@@ -99,6 +119,9 @@
 //          ^^^^^^^^^^^ -storage.type.scalar.hlsl
 //                     ^^^^^^^^^^ storage.type.scalar.hlsl
 //                               ^^^^^^ -storage.type.scalar.hlsl
+//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ -constant.numeric.hlsl
+//                                ^^^ constant.numeric.hlsl
+//                                   ^^ -constant.numeric.hlsl
 
   min12int varname;
 //^^^^^^^^ storage.type.scalar.hlsl
@@ -111,6 +134,9 @@
 //        ^^^^^^^^^^^ -storage.type.scalar.hlsl
 //                   ^^^^^^^^ storage.type.scalar.hlsl
 //                           ^^^^^^ -storage.type.scalar.hlsl
+//^^^^^^^^^^^^^^^^^^^^^^^^^^^^ -constant.numeric.hlsl
+//                            ^^^ constant.numeric.hlsl
+//                               ^^ -constant.numeric.hlsl
 
   min16int varname;
 //^^^^^^^^ storage.type.scalar.hlsl
@@ -123,6 +149,9 @@
 //        ^^^^^^^^^^^ -storage.type.scalar.hlsl
 //                   ^^^^^^^^ storage.type.scalar.hlsl
 //                           ^^^^^^ -storage.type.scalar.hlsl
+//^^^^^^^^^^^^^^^^^^^^^^^^^^^^ -constant.numeric.hlsl
+//                            ^^^ constant.numeric.hlsl
+//                               ^^ -constant.numeric.hlsl
 
   min16uint varname;
 //^^^^^^^^^ storage.type.scalar.hlsl
@@ -135,6 +164,9 @@
 //         ^^^^^^^^^^^ -storage.type.scalar.hlsl
 //                    ^^^^^^^^^ storage.type.scalar.hlsl
 //                             ^^^^^^ -storage.type.scalar.hlsl
+//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ -constant.numeric.hlsl
+//                              ^^^ constant.numeric.hlsl
+//                                 ^^ -constant.numeric.hlsl
 
   uint varname;
 //^^^^ storage.type.scalar.hlsl
@@ -147,15 +179,16 @@
 //    ^^^^^^^^^^^ -storage.type.scalar.hlsl
 //               ^^^^ storage.type.scalar.hlsl
 //                   ^^^^ -storage.type.scalar.hlsl
+//^^^^^^^^^^^^^^^^^^^^ -constant.numeric.hlsl
+//                    ^ constant.numeric.hlsl
+//                     ^^ -constant.numeric.hlsl
 
   void
 //^^^^ storage.type.scalar.hlsl
-}
 
 
 // Vector types
 
-{
   dword2 varname;
 //^^^^^^^^^^^^^^^ -storage.type.vector.hlsl
 
@@ -164,11 +197,21 @@
   float2 varname = { 5.0, 5.0 };
 //^^^^^^ storage.type.vector.hlsl
 //      ^^^^^^^^^^^^^^^^^^^^^^^^ -storage.type.vector.hlsl
+//^^^^^^^^^^^^^^^^^^^ -constant.numeric.hlsl
+//                   ^^^ constant.numeric.hlsl
+//                      ^^ -constant.numeric.hlsl
+//                        ^^^ constant.numeric.hlsl
+//                           ^^ -constant.numeric.hlsl
   float2 varname = float2(5.0, 5.0);
 //^^^^^^ storage.type.vector.hlsl
 //      ^^^^^^^^^^^ -storage.type.vector.hlsl
 //                 ^^^^^^ storage.type.vector.hlsl
 //                       ^^^^^^^^^^^ -storage.type.vector.hlsl
+//^^^^^^^^^^^^^^^^^^^^^^^^ -constant.numeric.hlsl
+//                        ^^^ constant.numeric.hlsl
+//                           ^^ -constant.numeric.hlsl
+//                             ^^^ constant.numeric.hlsl
+//                                ^^ -constant.numeric.hlsl
 
   float5 varname;
 //^^^^^^^^^^^^^^^ -storage.type.vector.hlsl
@@ -190,18 +233,25 @@
   float2x2 varname = { 5.0, 5.0, 5.0, 5.0 };
 //^^^^^^^^ storage.type.matrix.hlsl
 //        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ -storage.type.matrix.hlsl
+//^^^^^^^^^^^^^^^^^^^^^ -constant.numeric.hlsl
+//                     ^^^ constant.numeric.hlsl
+//                        ^^ -constant.numeric.hlsl
+//                          ^^^ constant.numeric.hlsl
+//                             ^^ -constant.numeric.hlsl
+//                               ^^^ constant.numeric.hlsl
+//                                  ^^ -constant.numeric.hlsl
+//                                    ^^^ constant.numeric.hlsl
+//                                       ^^ -constant.numeric.hlsl
 
   float4x5 varname;
 //^^^^^^^^^^^^^^^^^ -storage.type.matrix.hlsl
 
   void2x2 varname;
 //^^^^^^^^^^^^^^^^ -storage.type.vector.hlsl
-}
 
 
 // Texture types
 
-{
   Texture1D varname : register(t5);
 //^^^^^^^^^ storage.type.texture.hlsl
 //         ^^^^^^^^^^^^^^^^^^^^^^^^ -storage.type.texture.hlsl
@@ -280,12 +330,10 @@
 //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ -storage.type.texture.hlsl
   RWTextureCubeMSArray varname : register(t5);
 //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ -storage.type.texture.hlsl
-}
 
 
 // Structs
 
-{
   struct varname
 //^^^^^^ storage.type.struct.hlsl
 //      ^^^^^^^^ -storage.type.struct.hlsl
@@ -448,4 +496,3 @@
 //  ^^^^^^^^^^^^^^^ entity.name.type.struct.hlsl
 //^^ -entity.name.type.struct.hlsl
 //                 ^ -entity.name.type.struct.hlsl
-}
