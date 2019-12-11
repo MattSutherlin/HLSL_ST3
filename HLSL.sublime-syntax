@@ -206,15 +206,15 @@ contexts:
     - match: \)
       set:
         - meta_scope: meta.function.hlsl
-        - match: \}
-          scope: punctuation.section.block.end.hlsl
-          pop: true
         - match: \{
-        - include: prototype
           scope: punctuation.section.block.begin.hlsl
-          push:
-            - match: (?=\})
-              pop: true
+          set:
+          - meta_scope: meta.function.hlsl
+          - include: prototype
+          - include: empty_scope
+          - match: \}
+            scope: punctuation.section.block.end.hlsl
+            pop: true
 
 
   function_macro_body:
