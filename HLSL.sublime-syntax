@@ -174,10 +174,19 @@ contexts:
       scope: keyword.control.hlsl
 
 
-  empty_scope:
+  empty_scope_function:
     - match: \{
       push:
         - include: prototype
+        - match: \}
+          pop: true
+
+
+  empty_scope_macro:
+    - match: \{
+      push:
+        - include: prototype
+        - include: preprocessor_line_ending
         - match: \}
           pop: true
 
@@ -212,7 +221,7 @@ contexts:
           set:
           - meta_scope: meta.function.hlsl
           - include: prototype
-          - include: empty_scope
+          - include: empty_scope_function
           - match: \}
             scope: punctuation.section.block.end.hlsl
             pop: true
@@ -227,7 +236,7 @@ contexts:
         - include: prototype
         - include: preprocessor_line_continuation
         - include: preprocessor_line_ending
-        - include: empty_scope
+        - include: empty_scope_macro
 
 
   intrinsics:
