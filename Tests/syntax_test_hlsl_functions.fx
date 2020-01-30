@@ -51,6 +51,16 @@
 
 // Loose functions
 
+  void FuncForwardDeclare();
+//     ^^^^^^^^^^^^^^^^^^ entity.name.function.hlsl
+//^^^^^ -entity.name.function.hlsl
+//                       ^^^ -entity.name.function.hlsl
+//^^^^^^^^^^^^^^^^^^^^^^^^ -meta.function.parameters.hlsl
+//                         ^^ -meta.function.parameters.hlsl
+//                        ^ meta.function.parameters.hlsl
+
+// ^ -meta.function.hlsl
+
   float FunctionName(float param1, int2 param2, structName param3)
 //      ^^^^^^^^^^^^ entity.name.function.hlsl
 //^^^^^^ -entity.name.function.hlsl
