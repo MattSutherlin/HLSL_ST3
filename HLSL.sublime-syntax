@@ -215,6 +215,8 @@ contexts:
     - match: \)
       set:
         - include: comments
+        - match: ;
+          pop: true
         - meta_scope: meta.function.hlsl
         - match: \{
           scope: punctuation.section.block.begin.hlsl
