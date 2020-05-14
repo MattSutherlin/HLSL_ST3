@@ -29,6 +29,7 @@ variables:
   texture_3d_types: (?:(?:RW)?Texture3D)
   texture_cube_types: (?:TextureCube(?:Array)?)
   texture_types: \b(?:texture|{{texture_1d_types}}|{{texture_2d_types}}|{{texture_3d_types}}|{{texture_cube_types}})\b
+  buffer_types: \b(?:AppendStructuredBuffer|Buffer|ByteAddressBuffer|ConsumeStructuredBuffer|RWBuffer|RWByteAddressBuffer|RWStructuredBuffer|StructuredBuffer)\b
 
 contexts:
   prototype:
@@ -45,7 +46,7 @@ contexts:
     - include: functions
     - include: preprocessor_tokens
     - include: preprocessor_keywords
-    - include: basic_built_in_types
+    - include: built_in_types
     - include: operators
     - include: misc
     - include: numeric_constants
@@ -130,7 +131,7 @@ contexts:
         3: keyword.control.attribute.hlsl
 
 
-  basic_built_in_types:
+  built_in_types:
     - match: '{{scalar_types}}'
       scope: storage.type.scalar.hlsl
 
@@ -143,6 +144,9 @@ contexts:
     - match: '{{texture_types}}'
       scope: storage.type.texture.hlsl
 
+    - match: '{{buffer_types}}'
+      scope: storage.type.buffer.hlsl
+
     - match: \b(string)\b
       scope: storage.type.string.hlsl
 
@@ -151,7 +155,7 @@ contexts:
     - match: \b(cbuffer|tbuffer)\b
       scope: storage.type.buffer.hlsl
 
-    - match: \b(AppendStructuredBuffer|Buffer|ByteAddressBuffer|ConstantBuffer|ConsumeStructuredBuffer|RWBuffer|RWByteAddressBuffer|RWStructuredBuffer|StructuredBuffer)\b
+    - match: \b(ConstantBuffer)\b
       scope: storage.type.buffer.hlsl
 
 
@@ -192,14 +196,15 @@ contexts:
 
 
   functions:
-    - match: (?:({{scalar_types}})|({{vector_types}})|({{matrix_types}})|({{texture_types}})|(\b{{valid_variable}})\b)(?:\s+)(\b{{valid_variable}})(?:\s*)(?:\()
+    - match: (?:({{scalar_types}})|({{vector_types}})|({{matrix_types}})|({{texture_types}})|({{buffer_types}})|(\b{{valid_variable}})\b)(?:\s+)(\b{{valid_variable}})(?:\s*)(?:\()
       captures:
         1: storage.type.scalar.hlsl
         2: storage.type.vector.hlsl
         3: storage.type.matrix.hlsl
         4: storage.type.texture.hlsl
-        5: storage.type.hlsl
-        6: entity.name.function.hlsl
+        5: storage.type.buffer.hlsl
+        6: storage.type.hlsl
+        7: entity.name.function.hlsl
       push: function_body
 
     - match: (?:(#define)\b)(?:\s+)(\b{{valid_variable}})(?:\s*)(?:\()
