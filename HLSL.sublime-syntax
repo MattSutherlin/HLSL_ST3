@@ -24,12 +24,17 @@ variables:
   scalar_types: \b(?:{{reusable_value_types}}|dword|void)\b
   vector_types: \b(?:{{reusable_value_types}}(?:[1-4]))\b
   matrix_types: \b(?:{{reusable_value_types}}(?:[1-4])(?:x)(?:[1-4])|(?:matrix))\b
-  texture_1d_types: (?:(?:RW)?Texture1D(?:Array)?)
-  texture_2d_types: (?:(?:RW)?Texture2D(?:Array)?|Texture2D(?:MS)?(?:Array)?)
-  texture_3d_types: (?:(?:RW)?Texture3D)
+  texture_1d_types: (?:Texture1D(?:Array)?)
+  texture_1d_rw_types: (?:(?:RW){{texture_1d_types}})
+  texture_2d_types: (?:Texture2D(?:Array)?|Texture2D(?:MS)?(?:Array)?)
+  texture_2d_rw_types: (?:(?:RW)Texture2D(?:Array)?)
+  texture_3d_types: (?:Texture3D)
+  texture_3d_rw_types: (?:(?:RW){{texture_3d_types}})
   texture_cube_types: (?:TextureCube(?:Array)?)
   texture_types: \b(?:texture|{{texture_1d_types}}|{{texture_2d_types}}|{{texture_3d_types}}|{{texture_cube_types}})\b
-  buffer_types: \b(?:AppendStructuredBuffer|Buffer|ByteAddressBuffer|ConsumeStructuredBuffer|RWBuffer|RWByteAddressBuffer|RWStructuredBuffer|StructuredBuffer)\b
+  texture_rw_types: \b(?:{{texture_1d_rw_types}}|{{texture_2d_rw_types}}|{{texture_3d_rw_types}})\b
+  buffer_types: \b(?:AppendStructuredBuffer|Buffer|ByteAddressBuffer|ConsumeStructuredBuffer|StructuredBuffer)\b
+  buffer_rw_types: \b(?:RWBuffer|RWByteAddressBuffer|RWStructuredBuffer)\b
 
 contexts:
   prototype:
@@ -144,8 +149,18 @@ contexts:
     - match: '{{texture_types}}'
       scope: storage.type.texture.hlsl
 
+    - match: '(globallycoherent)?(?:\s+)({{texture_rw_types}})'
+      captures:
+        1: storage.modifier.hlsl
+        2: storage.type.texture.hlsl
+
     - match: '{{buffer_types}}'
       scope: storage.type.buffer.hlsl
+
+    - match: '(globallycoherent)?(?:\s+)({{buffer_rw_types}})'
+      captures:
+        1: storage.modifier.hlsl
+        2: storage.type.buffer.hlsl
 
     - match: \b(string)\b
       scope: storage.type.string.hlsl
@@ -196,15 +211,19 @@ contexts:
 
 
   functions:
-    - match: (?:({{scalar_types}})|({{vector_types}})|({{matrix_types}})|({{texture_types}})|({{buffer_types}})|(\b{{valid_variable}})\b)(?:\s+)(\b{{valid_variable}})(?:\s*)(?:\()
+    - match: (?:({{scalar_types}})|({{vector_types}})|({{matrix_types}})|({{texture_types}})|(globallycoherent)?(?:\s+)({{texture_rw_types}})|({{buffer_types}})|(globallycoherent)?(?:\s+)({{buffer_rw_types}})|(\b{{valid_variable}})\b)(?:\s+)(\b{{valid_variable}})(?:\s*)(?:\()
       captures:
         1: storage.type.scalar.hlsl
         2: storage.type.vector.hlsl
         3: storage.type.matrix.hlsl
         4: storage.type.texture.hlsl
-        5: storage.type.buffer.hlsl
-        6: storage.type.hlsl
-        7: entity.name.function.hlsl
+        5: storage.modifier.hlsl
+        6: storage.type.texture.hlsl
+        7: storage.type.buffer.hlsl
+        8: storage.modifier.hlsl
+        9: storage.type.buffer.hlsl
+        10: storage.type.hlsl
+        11: entity.name.function.hlsl
       push: function_body
 
     - match: (?:(#define)\b)(?:\s+)(\b{{valid_variable}})(?:\s*)(?:\()
