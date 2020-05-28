@@ -24,7 +24,7 @@ class OpenIncludedHlslFileCommand(sublime_plugin.TextCommand):
 			scopeRegion = view.extract_scope(self.pos)
 			originalFilePath = view.substr(scopeRegion).replace("/", "\\")
 
-			# Search order is from absolute path of launching file, then list order of user paths
+			# Search order is from absolute path of launching file, list order of user paths, finally Unity project paths.
 			basePath = ""
 			curFile = view.file_name()
 			if curFile != None:
@@ -38,15 +38,37 @@ class OpenIncludedHlslFileCommand(sublime_plugin.TextCommand):
 				newSettingsPath = re.sub("(\$base_path)(\[)(\d+)(\])", self.path_replace, settingsIncludePaths[index])
 				paths.append(newSettingsPath)
 
+			# Try to find paths expected relative to a Unity project's root folder.
+			assetDir, embeddedPackagePaths, cachedPackagePaths = self.get_unity_paths(basePath)
+			if assetDir:
+				paths.append(assetDir)
+				paths.extend(embeddedPackagePaths)
+				paths.extend(cachedPackagePaths)
+
 			for path in paths:
 				newPath = path + originalFilePath
 				fileExists = os.path.isfile(newPath)
 				if fileExists:
-					fileView = sublime.active_window().find_open_file(newPath)
-					if fileView == None:
-						fileView = sublime.active_window().open_file(newPath)
-					sublime.active_window().focus_view(fileView)
+					self.open_or_switch_to(newPath)
 					return
+
+			# Unity search last resort: Try to find path relative to unity package paths with versions sepecified in names
+			#   For example, when target path is:
+			#     "Packages/com.unity.render-pipelines.core/ShaderLibrary/Common.hlsl"
+			#   Then it will find (if it exists):
+			#     "[UnityProject]\Library\PackageCache\com.unity.render-pipelines.core@7.3.1\ShaderLibrary\Common.hlsl"
+			targetPathParts = originalFilePath.split("\\")
+			if len(targetPathParts) >= 3 and targetPathParts[0].lower() == "packages":
+				packageName = targetPathParts[1]
+				targetRelative = "/".join(targetPathParts[2:])
+				for cachedPackagePath in cachedPackagePaths:
+					if os.path.basename(cachedPackagePath).split("@")[0] == packageName:
+						targetFile = os.path.normpath(os.path.join(cachedPackagePath, targetRelative))
+						if os.path.isfile(targetFile):
+							self.open_or_switch_to(targetFile)
+							return
+
+
 
 	def want_event(self):
 		return True
@@ -57,7 +79,7 @@ class OpenIncludedHlslFileCommand(sublime_plugin.TextCommand):
 	def is_visible(self, event):
 		if self.is_enabled() == False:
 			return False
-			
+
 		view = self.view
 
 		mousePos = view.window_to_text((event["x"], event["y"]))
@@ -75,3 +97,39 @@ class OpenIncludedHlslFileCommand(sublime_plugin.TextCommand):
 							return True
 		self.pos = -1
 		return False
+
+	def open_or_switch_to(self, targetFile):
+		fileView = sublime.active_window().find_open_file(targetFile)
+		if fileView == None:
+			fileView = sublime.active_window().open_file(targetFile)
+		sublime.active_window().focus_view(fileView)
+
+	def get_unity_paths(self, basePath):
+		"""
+		Returns a tuple of unity paths which can be used to find project/package relative files. Tuple in
+		order of relavance:
+		- [project root]/Assets (or None if can't be found)
+		- list of folders in [project root]/Packages
+		- list of folders in [project root]/Library/PackageCache
+		"""
+
+		lastLength = -1
+		currentDir = basePath
+		while len(currentDir) != lastLength:
+			lastLength = len(currentDir)
+			currentDir = os.path.dirname(currentDir)
+			assetsDir = os.path.normpath(currentDir + "\\Assets")
+			packagesDir = os.path.normpath(currentDir + "\\Packages")
+			packageCacheDir = os.path.normpath(currentDir + "\\Library\\PackageCache")
+
+			# If both Assets and Packages folders exist then assume it is the project's root, but don't rely on
+			# Library/PackageCache folder existing in case it hasn't been generated yet.
+			if os.path.isdir(assetsDir) and os.path.isdir(packagesDir):
+				embeddedPackagePaths = [packagesDir + "\\" + p for p in next(os.walk(packagesDir))[1]]
+				cachedPackagePaths = []
+				if os.path.isdir(packageCacheDir):
+					cachedPackagePaths = [packageCacheDir + "\\" + p for p in next(os.walk(packageCacheDir))[1]]
+				return (assetsDir, embeddedPackagePaths, cachedPackagePaths)
+
+		return (None, [], [])
+
