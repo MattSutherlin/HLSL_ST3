@@ -68,6 +68,18 @@ class OpenIncludedHlslFileCommand(sublime_plugin.TextCommand):
 							self.open_or_switch_to(targetFile)
 							return
 
+				# Check if we are in a packages repository like how github.com/Unity-Technologies/Graphics is
+				# organized. To determine this we have check each folder within each of parent and see if it matches
+				# the package name.
+				lastLength = -1
+				currentDir = basePath
+				while len(currentDir) != lastLength:
+					lastLength = len(currentDir)
+					currentDir = os.path.dirname(currentDir)
+					targetFile = os.path.normpath(currentDir + "\\" + packageName + "\\" + targetRelative)
+					if os.path.isfile(targetFile):
+						self.open_or_switch_to(targetFile)
+						return
 
 
 	def want_event(self):
