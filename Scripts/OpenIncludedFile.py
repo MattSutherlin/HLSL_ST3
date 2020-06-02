@@ -42,11 +42,9 @@ class OpenIncludedHlslFileCommand(sublime_plugin.TextCommand):
 			assetDir, embeddedPackagePaths, cachedPackagePaths = self.get_unity_paths(basePath)
 			if assetDir:
 				paths.append(assetDir)
-				paths.extend(embeddedPackagePaths)
-				paths.extend(cachedPackagePaths)
 
 			for path in paths:
-				newPath = path + originalFilePath
+				newPath = os.path.normpath(path + "\\" + originalFilePath)
 				fileExists = os.path.isfile(newPath)
 				if fileExists:
 					self.open_or_switch_to(newPath)
@@ -60,10 +58,13 @@ class OpenIncludedHlslFileCommand(sublime_plugin.TextCommand):
 			targetPathParts = originalFilePath.split("\\")
 			if len(targetPathParts) >= 3 and targetPathParts[0].lower() == "packages":
 				packageName = targetPathParts[1]
-				targetRelative = "/".join(targetPathParts[2:])
-				for cachedPackagePath in cachedPackagePaths:
-					if os.path.basename(cachedPackagePath).split("@")[0] == packageName:
-						targetFile = os.path.normpath(os.path.join(cachedPackagePath, targetRelative))
+				targetRelative = "\\".join(targetPathParts[2:])
+				packagePaths = embeddedPackagePaths + cachedPackagePaths
+				embeddedPackagePaths.extend(packagePaths)
+
+				for packagePath in packagePaths:
+					if os.path.basename(packagePath).split("@")[0] == packageName:
+						targetFile = os.path.normpath(os.path.join(packagePath, targetRelative))
 						if os.path.isfile(targetFile):
 							self.open_or_switch_to(targetFile)
 							return
@@ -106,11 +107,17 @@ class OpenIncludedHlslFileCommand(sublime_plugin.TextCommand):
 
 	def get_unity_paths(self, basePath):
 		"""
-		Returns a tuple of unity paths which can be used to find project/package relative files. Tuple in
-		order of relavance:
-		- [project root]/Assets (or None if can't be found)
-		- list of folders in [project root]/Packages
-		- list of folders in [project root]/Library/PackageCache
+		Returns a tuple of unity paths which can be used to find project/package relative files. Tuple in \
+		order of relavance.
+
+		Args:
+			basePath (string): Target files parent directory.
+
+		Returns:
+			tuple: Returns a tuple of paths:
+				- [project root]/Assets (or None if can't be found)
+				- list of folders in [project root]/Packages
+				- list of folders in [project root]/Library/PackageCache
 		"""
 
 		lastLength = -1
