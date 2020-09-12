@@ -1,3 +1,4 @@
+from .IfDefUtils import IfDefMatchListener
 from .IntrinsicHover import IntrinsicHoverListener
 from .OpenIncludedFile import OpenIncludedHlslFileCommand
 from .SwapAttributeParams import SwapAttributeParamsCommand
@@ -17,6 +18,7 @@ def reload_package(package):
 
 
 def plugin_loaded():
+	reload_package(IfDefUtils)
 	reload_package(IntrinsicHover)
 	reload_package(OpenIncludedFile)
 	reload_package(SwapAttributeParams)
@@ -24,6 +26,7 @@ def plugin_loaded():
 
 def plugin_unloaded():
 	SwapAttributeParams.plugin_unloaded()
+	reload_package(IfDefUtils)
 	reload_package(IntrinsicHover)
 	reload_package(OpenIncludedFile)
 	reload_package(SwapAttributeParams)

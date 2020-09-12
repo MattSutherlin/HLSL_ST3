@@ -21,5 +21,7 @@
 	// "new_tab" is used if an invalid setting is made
 	"IntrinsicHoverLinkOpenStyle": "new_tab",
 
-	"AttributeParamSwapEnabled": true
+	"AttributeParamSwapEnabled": true,
+
+	"IfDefMatchEnabled": true
 }
