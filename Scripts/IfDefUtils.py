@@ -69,7 +69,12 @@ class IfDefMatchListener(sublime_plugin.EventListener):
 				for newScope in newLineScopeList:
 					if newScope == "keyword.control.preprocessor.hlsl":
 						newLineWord = view.substr(newLine).lstrip()
-						newLineWordForMatch = newLineWord.lstrip("#").split()[0]
+						newLineWordForMatch = newLineWord.lstrip("#")
+						newLineMatchArray = newLineWordForMatch.split()
+						if (len(newLineMatchArray) != 0):
+							newLineWordForMatch = newLineMatchArray[0]
+						else:
+							break
 						if newLineWordForMatch in PreprocessorBlockListScanDown:
 							stackSize += 1
 						elif newLineWordForMatch in PreprocessorBlockListScanUp:
@@ -93,7 +98,12 @@ class IfDefMatchListener(sublime_plugin.EventListener):
 				for newScope in newLineScopeList:
 					if newScope == "keyword.control.preprocessor.hlsl":
 						newLineWord = view.substr(newLine).lstrip()
-						newLineWordForMatch = newLineWord.lstrip("#").split()[0]
+						newLineWordForMatch = newLineWord.lstrip("#")
+						newLineMatchArray = newLineWordForMatch.split()
+						if (len(newLineMatchArray) != 0):
+							newLineWordForMatch = newLineMatchArray[0]
+						else:
+							break
 						if newLineWordForMatch in PreprocessorBlockListScanUp:
 							stackSize += 1
 						elif newLineWordForMatch in PreprocessorBlockListScanDown:
