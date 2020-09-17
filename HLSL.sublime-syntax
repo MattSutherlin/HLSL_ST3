@@ -507,7 +507,7 @@ contexts:
         - include: preprocessor_line_continuation
         - include: preprocessor_line_ending
 
-    - match: (#if[n]*def)(?:\s+)({{valid_variable}})
+    - match: (#\s*if[n]?def)(?:\s+)({{valid_variable}})
       captures:
         1: keyword.control.preprocessor.hlsl
         2: constant.other.hlsl
