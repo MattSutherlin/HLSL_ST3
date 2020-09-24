@@ -149,7 +149,7 @@ contexts:
     - match: '{{texture_types}}'
       scope: storage.type.texture.hlsl
 
-    - match: '(globallycoherent)?(?:\s+)({{texture_rw_types}})'
+    - match: '(globallycoherent)?(?:\b\s*)({{texture_rw_types}})'
       captures:
         1: storage.modifier.hlsl
         2: storage.type.texture.hlsl
@@ -157,7 +157,7 @@ contexts:
     - match: '{{buffer_types}}'
       scope: storage.type.buffer.hlsl
 
-    - match: '(globallycoherent)?(?:\s+)({{buffer_rw_types}})'
+    - match: '(globallycoherent)?(?:\b\s*)({{buffer_rw_types}})'
       captures:
         1: storage.modifier.hlsl
         2: storage.type.buffer.hlsl
@@ -211,7 +211,7 @@ contexts:
 
 
   functions:
-    - match: (?:({{scalar_types}})|({{vector_types}})|({{matrix_types}})|({{texture_types}})|(globallycoherent)?(?:\s+)({{texture_rw_types}})|({{buffer_types}})|(globallycoherent)?(?:\s+)({{buffer_rw_types}})|(\b{{valid_variable}})\b)(?:\s+)(\b{{valid_variable}})(?:\s*)(?:\()
+    - match: (?:({{scalar_types}})|({{vector_types}})|({{matrix_types}})|({{texture_types}})|(globallycoherent)?(?:\b\s*)({{texture_rw_types}})|({{buffer_types}})|(globallycoherent)?(?:\b\s*)({{buffer_rw_types}})|(\b{{valid_variable}})\b)(?:\s+)(\b{{valid_variable}})(?:\s*)(?:\()
       captures:
         1: storage.type.scalar.hlsl
         2: storage.type.vector.hlsl
