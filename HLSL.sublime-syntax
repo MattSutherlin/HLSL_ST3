@@ -57,6 +57,24 @@ contexts:
     - include: numeric_constants
 
 
+  prototype_for_function_body:
+    - include: preprocessor_include
+    - include: string
+    - include: comments
+    - include: invalid
+    - include: attributes
+    - include: modifiers
+    - include: buffers
+    - include: control_keywords
+    - include: intrinsics
+    - include: preprocessor_tokens
+    - include: preprocessor_keywords
+    - include: built_in_types
+    - include: operators
+    - include: misc
+    - include: numeric_constants
+
+
   main:
     - match: (\bstruct\b)(?:\s+)({{valid_variable}})
       scope: meta.struct.hlsl
@@ -234,7 +252,7 @@ contexts:
 
 
   function_body:
-    - include: prototype
+    - include: prototype_for_function_body
     - meta_content_scope: meta.function.parameters.hlsl
     - match: \)
       set:
@@ -246,7 +264,7 @@ contexts:
           scope: punctuation.section.block.begin.hlsl
           set:
           - meta_scope: meta.function.hlsl
-          - include: prototype
+          - include: prototype_for_function_body
           - include: empty_scope_function
           - match: \}
             scope: punctuation.section.block.end.hlsl
@@ -254,12 +272,12 @@ contexts:
 
 
   function_macro_body:
-    - include: prototype
+    - include: prototype_for_function_body
     - meta_content_scope: meta.function.parameters.hlsl
     - match: \)
       set:
         - meta_scope: meta.function.hlsl
-        - include: prototype
+        - include: prototype_for_function_body
         - include: preprocessor_line_continuation
         - include: preprocessor_line_ending
         - include: empty_scope_macro
