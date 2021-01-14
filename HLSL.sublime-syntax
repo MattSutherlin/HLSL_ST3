@@ -64,7 +64,6 @@ contexts:
     - include: invalid
     - include: attributes
     - include: modifiers
-    - include: register
     - include: buffers
     - include: control_keywords
     - include: intrinsics
